@@ -2,17 +2,21 @@ package com.login_signup_screendesign_demo;
 
 import android.widget.ImageButton;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by shantanu on 25/9/17.
  */
 
 public class myPojo {
 
-    private String desc;
-    private ImageButton imageButton;
+    private String name;
 
-    public myPojo(String desc, ImageButton imageButton) {
-        this.desc = desc;
-        this.imageButton = imageButton;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -14,7 +14,6 @@ public interface LoginAPI {
     @FormUrlEncoded
     @POST("db_validate.php")
     public Call<Integer> validateUser(
-            @Field("Email_ID") String email,
-            @Field("Password") String passwd);//           Callback<retrofit2.Response> callback);
-
+            @Field("email") String email,
+            @Field("password") String passwd);//           Callback<retrofit2.Response> callback);
 }

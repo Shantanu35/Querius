@@ -60,16 +60,16 @@
         android:background="@color/white_greyish" />
 
     <EditText
-        android:id="@+id/mobileNumber"
+        android:id="@+id/tagLine"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:background="@android:color/transparent"
-        android:drawableLeft="@drawable/phone"
+        android:drawableLeft="@drawable/user"
         android:drawablePadding="8dp"
         android:gravity="center_vertical"
-        android:hint="@string/mobileNumber"
-        android:inputType="phone"
+        android:hint="Tagline"
+        android:inputType="textCapWords"
         android:padding="10dp"
         android:singleLine="true"
         android:textColor="@color/white"

@@ -30,6 +30,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/shantanu/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/logging-interceptor/3.3.1/99ce730034c6f5aaed710d1e0e9df95e8714ed5f/logging-interceptor-3.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="99ce730034c6f5aaed710d1e0e9df95e8714ed5f">
+        <dex dex="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/transforms/dex/debug/folders/1000/10/logging-interceptor-3.3.1_a65ba4864b7e5b9cc1e2e310393ca41505cb827f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/libs/additionnal.jar"
         jumboMode="true"
         optimize="true"
@@ -196,7 +205,7 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="b64fc652de6f7e5bd0f6a1b38d00da7cd7f1c50b">
+        sha1="4e3f1e640f3c00f74713c050bdaa17bb215978a2">
         <dex dex="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_df3d1bce91d88b95400999ad565006d8514d85eb/classes.dex" />
     </item>
     <item
@@ -270,6 +279,15 @@
         revision="26.0.1"
         sha1="190a642ba16d1421296a4d794606279b80039c59">
         <dex dex="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_834fc3f4e578a0305eecd7341a15c2547caa543d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shantanu/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_5e6c49605281eab3abde8b4c31b560ccc0b04459/classes.dex" />
     </item>
     <item
         is-multidex="true"

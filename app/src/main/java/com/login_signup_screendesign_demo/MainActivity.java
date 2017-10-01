@@ -2,12 +2,18 @@ package com.login_signup_screendesign_demo;
 
 import com.login_signup_screendesign_demo.R;
 
+import android.*;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 	private static FragmentManager fragmentManager;
@@ -16,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+
 		fragmentManager = getSupportFragmentManager();
 
 		// If savedinstnacestate is null then replace login fragment

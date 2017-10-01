@@ -19,5 +19,5 @@ public interface APIClient {
 
     @FormUrlEncoded
     @POST("db_forgot.php")
-    Call<List<User_Info>> getUser_Info(@Field("Email_ID") String email);
+    Call<List<User_Info>> getUser_Info(@Field("email") String email);
 }

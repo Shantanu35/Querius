@@ -1,6 +1,7 @@
 package com.login_signup_screendesign_demo;
 
 import android.app.Fragment;
+import android.content.ClipData;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ public class MainActivity2 extends AppCompatActivity{
 //    private TextView mTextMessage;
 
     User_Info userInfo;
+    MenuItem menuItem;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -42,6 +44,12 @@ public class MainActivity2 extends AppCompatActivity{
                     getIntent().putExtra("Com_object",userInfo);
                     android.support.v4.app.Fragment fragment = new android.support.v4.app.Fragment();
                     fragmentManager.beginTransaction().replace(R.id.content,new Profile_Fragment()).commit();
+                    return true;
+
+                case  R.id.ask_ques:
+                    FragmentManager fragmentManager2 = getSupportFragmentManager();
+                    getIntent().putExtra("Com_object",userInfo);
+                    fragmentManager2.beginTransaction().replace(R.id.content,new ques_ask()).commit();
                     return true;
             }
             return true;
