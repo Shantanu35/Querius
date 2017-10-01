@@ -1,13 +1,23 @@
 package com.login_signup_screendesign_demo;
 
+import android.*;
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ProviderInfo;
+import android.content.res.XmlResourceParser;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.FileProvider;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -19,13 +29,21 @@ import android.widget.Toast;
 
 import com.kosalgeek.android.photoutil.CameraPhoto;
 import com.kosalgeek.android.photoutil.ImageLoader;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -45,9 +63,13 @@ public class Profile_Fragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private static TextView emailid,Name;
 
+    final String TAG = "Image";
+
+    final String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
+
     User_Info info;
 
-    RoundedImageView imageView;
+    private  RoundedImageView imageView;
     CameraPhoto cameraPhoto;
 
     final int CAMERA_REQUEST = 1990;
@@ -93,11 +115,16 @@ public class Profile_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+
+
         View v = inflater.inflate(R.layout.fragment_profile_, container, false);
         Intent i = getActivity().getIntent();
         info = (User_Info) i.getSerializableExtra("Com_object");
         if (info != null)
-            Log.d("User_info", "" + info.getEmail_id());
+            Log.d(TAG, "At the beginning" + info.getImageURL());
 
         emailid = (TextView) v.findViewById(R.id.email_id);
         Name = (TextView) v.findViewById(R.id.name);
@@ -106,33 +133,48 @@ public class Profile_Fragment extends Fragment {
         emailid.setText(info.getEmail_id());
         Name.setText(info.getName());
 
+//        Bitmap bitmap=null;
+//        try {
+//            bitmap = ImageLoader.init().from(info.getImageURL()).requestSize(80,80).getBitmap();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        imageView.setImageBitmap(bitmap);
+
+        if(info.getImageURL().equals("https://wwwqueriuscom.000webhostapp.com/index.jpg")){
+            Picasso.with(Profile_Fragment.this.getActivity()).load(info.getImageURL()).into(imageView);
+        }
+        else {
+//            final ProviderInfo info = getContext().getPackageManager()
+//                    .resolveContentProvider(authority, PackageManager.GET_META_DATA);
+//            final XmlResourceParser in = info.loadXmlMetaData( //560
+//                    getContext().getPackageManager(), META_DATA_FILE_PROVIDER_PATHS);
+//            Bitmap btmp = Bitmap.createBitmap(drawable.getBitmap());
+            Picasso.with(Profile_Fragment.this.getActivity()).load(info.getImageURL()).into(imageView);
+
+
+
+//            Uri uri = FileProvider.getUriForFile(getContext(), getContext().getApplicationContext().getPackageName() + ".fileprovider",file);
+//            Log.d(TAG, "" + uri);
+//            imageView.setImageURI(uri);
+//            imageView.setImageBitmap(BitmapFactory.decodeFile(info.getImageURL()));
+        }
+//        imageView.setImageBitmap(BitmapFactory.decodeFile());
+
         cameraPhoto = new CameraPhoto(Profile_Fragment.this.getContext());
 
-        if (Build.VERSION.SDK_INT >= 24) {
-            try {
-                Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
-                m.invoke(null);
+
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        try {
-                            startActivityForResult(cameraPhoto.takePhotoIntent(), CAMERA_REQUEST);
-                            cameraPhoto.addToGallery();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                            Toast.makeText(getContext(), "Something Went Wrong", Toast.LENGTH_SHORT).show();
-                        }
+                            Log.d(TAG,"on click");
+                            checkImagePermissions();
                     }
                 });
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-
-
-        }
         return v;
-    }
+        }
+
+
 
 //    // TODO: Rename method, update argument and hook method into UI event
 //    public void onButtonPressed(Uri uri) {
@@ -174,19 +216,102 @@ public class Profile_Fragment extends Fragment {
 //    }
 
 
+    private void checkImagePermissions(){
+        if(Build.VERSION.SDK_INT>=23){
+            if(ActivityCompat.checkSelfPermission(Profile_Fragment.this.getActivity(), android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED   && ActivityCompat.checkSelfPermission(Profile_Fragment.this.getActivity(), Manifest.permission.CAMERA)
+                    != PackageManager.PERMISSION_GRANTED) {
+                Log.d(TAG,"Inside checkImage");
+                requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.CAMERA},123);
+                return;
+            }
+            else{
+                Log.d(TAG,"Inside checkImage else part");
+                try {
+                    startActivityForResult(cameraPhoto.takePhotoIntent(), CAMERA_REQUEST);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                cameraPhoto.addToGallery();
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        switch (requestCode){
+            case 123:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    if(grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                        Log.d(TAG,"Inside switch case");
+                        try {
+                            startActivityForResult(cameraPhoto.takePhotoIntent(), CAMERA_REQUEST);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        cameraPhoto.addToGallery();
+                    }
+                }else{
+                    Toast.makeText(Profile_Fragment.this.getActivity(), "Permission Denied", Toast.LENGTH_SHORT).show();
+                    checkImagePermissions();
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        }
+
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
             if(resultCode == RESULT_OK){
                 if(requestCode==CAMERA_REQUEST){
                     String photoPath = cameraPhoto.getPhotoPath();
+                    Log.d(TAG,"Inside onActivityforresult"+photoPath);
                     try {
                         Bitmap bitmap = ImageLoader.init().from(photoPath).requestSize(80,80).getBitmap();
                         imageView.setImageBitmap(bitmap);
+                       uploadImage(photoPath);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
-                        Toast.makeText(getContext(),"Something Went Wrong Again",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Profile_Fragment.this.getActivity(),"Something Went Wrong Again",Toast.LENGTH_SHORT).show();
                     }
                 }
             }
     }
+
+
+    public void uploadImage(final String photopath){
+        final Retrofit retrofit = new Retrofit.Builder().baseUrl(ROOT_URL).addConverterFactory(GsonConverterFactory.create()).build();
+        Image_interface imageInterface = retrofit.create(Image_interface.class);
+
+        Call<Integer> call = imageInterface.uploadImage(info.getUser_id(),photopath);
+
+        call.enqueue(new Callback<Integer>() {
+            @Override
+            public void onResponse(Call<Integer> call, Response<Integer> response) {
+                int value = response.body();
+                if(value==1){
+                    Log.d(TAG,"set");
+                    info.setImageURL(photopath);
+                }
+                else{
+                    Log.d(TAG,"notset");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Integer> call, Throwable t) {
+                Log.d(TAG,"Error");
+                t.printStackTrace();
+
+
+            }
+        });
+    }
+
+
+
 }

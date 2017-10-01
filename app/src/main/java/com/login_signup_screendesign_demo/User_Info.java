@@ -11,25 +11,49 @@ import java.io.Serializable;
 
 public class User_Info implements Serializable {
 
-    @SerializedName("Email_ID")
+    @SerializedName("userid")
+    @Expose
+    private int user_id;
+
+    @SerializedName("imageurl")
+    @Expose
+    private String imageURL;
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    @SerializedName("email")
     @Expose
     private  String email_id;
 
-    @SerializedName("Name")
+    @SerializedName("User_name")
     @Expose
     private  String name;
 
-    @SerializedName("Password")
+    @SerializedName("password")
     @Expose
     private  String password;
 
-    @SerializedName("Address")
+    @SerializedName("location")
     @Expose
     private  String address;
 
-    @SerializedName("Mobile_No")
+    @SerializedName("tagline")
     @Expose
-    private  String mob;
+    private  String tagLine;
 
     public String getEmail_id() {
         return email_id;
@@ -63,11 +87,11 @@ public class User_Info implements Serializable {
         this.address = address;
     }
 
-    public String getMob() {
-        return mob;
+    public String getTagLine() {
+        return tagLine;
     }
 
-    public void setMob(String mob) {
-        this.mob = mob;
+    public void setTagLine(String tagLine) {
+        this.tagLine = tagLine;
     }
 }

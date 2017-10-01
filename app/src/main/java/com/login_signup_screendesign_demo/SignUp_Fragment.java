@@ -35,12 +35,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignUp_Fragment extends Fragment implements OnClickListener {
 	private static View view;
-	private static EditText fullName, emailId, mobileNumber, location,
+	private static EditText fullName, emailId, location,tagline,
 			password, confirmPassword;
 	private static TextView login;
 	private static Button signUpButton;
 	private static CheckBox terms_conditions;
-	final String ROOT_URL = "http://192.168.43.66/sj/";
+	final String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
 
 	public SignUp_Fragment() {
 
@@ -60,7 +60,7 @@ public class SignUp_Fragment extends Fragment implements OnClickListener {
 	private void initViews() {
 		fullName = (EditText) view.findViewById(R.id.fullName);
 		emailId = (EditText) view.findViewById(R.id.userEmailId);
-		mobileNumber = (EditText) view.findViewById(R.id.mobileNumber);
+		tagline = (EditText) view.findViewById(R.id.tagLine);
 		location = (EditText) view.findViewById(R.id.location);
 		password = (EditText) view.findViewById(R.id.password);
 		confirmPassword = (EditText) view.findViewById(R.id.confirmPassword);
@@ -114,15 +114,17 @@ public class SignUp_Fragment extends Fragment implements OnClickListener {
 		Call<Integer> call = api.insertUser(fullName.getText().toString(),
 				emailId.getText().toString(),
 				location.getText().toString(),
-				mobileNumber.getText().toString(),
+                tagline.getText().toString(),
 				password.getText().toString());
 
 		call.enqueue(new Callback<Integer>() {
 			@Override
 			public void onResponse(Call<Integer> call, Response<Integer> response) {
 				Log.d("retro", "1");
+				int value = response.body();
 //				if (SignUp_Fragment.this.getActivity() == null)
 //					return;
+				if(value==1) {
 					SignUp_Fragment.this.getActivity().runOnUiThread(new Runnable() {
 						@Override
 						public void run() {
@@ -130,6 +132,18 @@ public class SignUp_Fragment extends Fragment implements OnClickListener {
 									"Account Created");
 						}
 					});
+					new MainActivity().replaceLoginFragment();
+
+				}
+				else{
+					SignUp_Fragment.this.getActivity().runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							new CustomToast().Show_Toast(getActivity(), view,
+									"EmailID already exists");
+						}
+					});
+				}
 
 			}
 
@@ -184,9 +198,9 @@ public class SignUp_Fragment extends Fragment implements OnClickListener {
 		// Get all edittext texts
 		String getFullName = fullName.getText().toString();
 		String getEmailId = emailId.getText().toString();
-		String getMobileNumber = mobileNumber.getText().toString();
 		String getLocation = location.getText().toString();
 		String getPassword = password.getText().toString();
+        String getTagline = tagline.getText().toString();
 		String getConfirmPassword = confirmPassword.getText().toString();
 
 		// Pattern match for email id
@@ -196,8 +210,8 @@ public class SignUp_Fragment extends Fragment implements OnClickListener {
 		// Check if all strings are null or not
 		if (getFullName.equals("") || getFullName.length() == 0
 				|| getEmailId.equals("") || getEmailId.length() == 0
-				|| getMobileNumber.equals("") || getMobileNumber.length() == 0
 				|| getLocation.equals("") || getLocation.length() == 0
+                || getTagline.equals("") || getTagline.length() == 0
 				|| getPassword.equals("") || getPassword.length() == 0
 				|| getConfirmPassword.equals("")
 				|| getConfirmPassword.length() == 0) {
@@ -231,7 +245,7 @@ public class SignUp_Fragment extends Fragment implements OnClickListener {
 //					.show();
 //				new New_Signup().execute();
 				insertUser();
-			new MainActivity().replaceLoginFragment();
+//			new MainActivity().replaceLoginFragment();
 //				new MainActivity().replaceLoginFragment();
 		}
 
@@ -241,7 +255,7 @@ public class SignUp_Fragment extends Fragment implements OnClickListener {
 
 		String getFullName = fullName.getText().toString();
 		String getEmailId = emailId.getText().toString();
-		String getMobileNumber = mobileNumber.getText().toString();
+		String getMobileNumber;
 		String getLocation = location.getText().toString();
 		String getPassword = password.getText().toString();
 	//	String getConfirmPassword = confirmPassword.getText().toString();

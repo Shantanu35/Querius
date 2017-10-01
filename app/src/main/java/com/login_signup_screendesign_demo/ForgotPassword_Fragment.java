@@ -52,7 +52,7 @@ public class ForgotPassword_Fragment extends Fragment implements
 	private static EditText emailId;
 	private static TextView submit, back;
 	private static LinearLayout forgot_password;
-	final String ROOT_URL = "http://192.168.43.66/sj/";
+	final String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
 	String pwd;
 	public ForgotPassword_Fragment() {
 
@@ -270,8 +270,8 @@ public class ForgotPassword_Fragment extends Fragment implements
 	class Mailer extends AsyncTask<Void,Void,Void>{
 
 		String getEmailId = emailId.getText().toString();
-		final String from = "shantanujainrko@gmail.com";
-		final String password = "l6s3s7s26";
+		final String from = "developers.querius@gmail.com";
+		final String password = "sdlproject";
 //		String passwd;
 
 		@Override
@@ -350,6 +350,8 @@ public class ForgotPassword_Fragment extends Fragment implements
 							Log.d("Pwd", "Message Sent");
 						}
 					});
+
+
 				}
 
 			} catch (MessagingException e) {throw new RuntimeException(e);}

@@ -16,4 +16,9 @@
         android:icon="@drawable/ic_person_black_24dp"
         android:title="@string/title_profile" />
 
+    <item
+        android:id="@+id/ask_ques"
+        android:icon="@drawable/ic_live_help_black_24dp"
+        android:title="Question" />
+
 </menu>
