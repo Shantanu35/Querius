@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:2:1-60:12
+ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:2:1-61:12
 	package
 		ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:4:5-49
 		INJECTED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml
@@ -34,6 +34,8 @@ MERGED from [com.android.support:cardview-v7:25.2.0] /home/shantanu/.android/bui
 MERGED from [com.ms-square:expandableTextView:0.1.4] /home/shantanu/.android/build-cache/7e46853588d66677295a1f3ea72096deb76333e4/output/AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/shantanu/.android/build-cache/9acf8ba013fd30a96c14247e08d948d9fa0914d1/output/AndroidManifest.xml:5:5-7:41
 MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] /home/shantanu/.android/build-cache/ee8eb1d1134a50f8210565cd7e2762b38890af05/output/AndroidManifest.xml:19:5-43
+MERGED from [jp.wasabeef:richeditor-android:1.2.2] /home/shantanu/.android/build-cache/d108fda665246803af5edcca4a4cd5f5aca1be0e/output/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.mthli:Knife:v1.1] /home/shantanu/.android/build-cache/23816b6b2c47532cb2c9c56245eb7abb0791d984/output/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-core:9.8.0] /home/shantanu/.android/build-cache/8efbeed423ddca57352f9c6a85d29edc94aaba91/output/AndroidManifest.xml:4:5-42
 MERGED from [com.google.firebase:firebase-analytics:9.8.0] /home/shantanu/.android/build-cache/49e5048a63fc61bf08d87311e2afded651dfc7c0/output/AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-analytics-impl:9.8.0] /home/shantanu/.android/build-cache/4335742e778d8d15fd3d98f7d2ec6cf003a9842c/output/AndroidManifest.xml:17:5-42
@@ -89,7 +91,7 @@ ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/L
 	android:name
 		ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:21:22-77
 application
-ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:23:5-58:19
+ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:23:5-59:19
 MERGED from [com.google.android.gms:play-services-auth:9.8.0] /home/shantanu/.android/build-cache/62339b0bb1431844d6a6ebcef88dd72b9ce5aceb/output/AndroidManifest.xml:19:5-25:19
 MERGED from [com.google.android.gms:play-services-base:9.8.0] /home/shantanu/.android/build-cache/f8210856ffedbc64d7d21c7a79179db0ae8c729f/output/AndroidManifest.xml:18:5-20:19
 MERGED from [com.android.support:design:25.3.1] /home/shantanu/.android/build-cache/09383ef3d15bf32bed4fac6c75d2bd9ba66c7ab6/output/AndroidManifest.xml:29:5-20
@@ -102,6 +104,7 @@ MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/shantanu/
 MERGED from [com.android.support:cardview-v7:25.2.0] /home/shantanu/.android/build-cache/018344c328abdea4855da6e438bd01939a667c78/output/AndroidManifest.xml:22:5-20
 MERGED from [com.ms-square:expandableTextView:0.1.4] /home/shantanu/.android/build-cache/7e46853588d66677295a1f3ea72096deb76333e4/output/AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/shantanu/.android/build-cache/9acf8ba013fd30a96c14247e08d948d9fa0914d1/output/AndroidManifest.xml:9:5-20
+MERGED from [com.github.mthli:Knife:v1.1] /home/shantanu/.android/build-cache/23816b6b2c47532cb2c9c56245eb7abb0791d984/output/AndroidManifest.xml:24:5-28:19
 MERGED from [com.google.firebase:firebase-core:9.8.0] /home/shantanu/.android/build-cache/8efbeed423ddca57352f9c6a85d29edc94aaba91/output/AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-analytics:9.8.0] /home/shantanu/.android/build-cache/49e5048a63fc61bf08d87311e2afded651dfc7c0/output/AndroidManifest.xml:24:5-33:19
 MERGED from [com.google.firebase:firebase-analytics-impl:9.8.0] /home/shantanu/.android/build-cache/4335742e778d8d15fd3d98f7d2ec6cf003a9842c/output/AndroidManifest.xml:24:5-28:19
@@ -184,9 +187,13 @@ ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/L
 	android:name
 		ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:54:27-73
 activity#com.login_signup_screendesign_demo.Main3Activity
-ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:57:9-60
+ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:57:9-51
 	android:name
 		ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:57:19-48
+activity#com.login_signup_screendesign_demo.Answer_Activity
+ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:58:9-62
+	android:name
+		ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:58:19-50
 activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
 ADDED from [com.google.android.gms:play-services-auth:9.8.0] /home/shantanu/.android/build-cache/62339b0bb1431844d6a6ebcef88dd72b9ce5aceb/output/AndroidManifest.xml:20:9-189
 	android:excludeFromRecents

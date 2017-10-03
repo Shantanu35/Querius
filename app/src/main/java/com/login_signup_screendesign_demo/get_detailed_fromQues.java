@@ -11,33 +11,29 @@ public class get_detailed_fromQues {
     @SerializedName("qtext")
     private String ques_text;
 
-    @SerializedName("userid")
-    private int user_id;
+    @SerializedName("User_name")
+    private String user_name;
 
-    @SerializedName("qtopic_id")
-    private int topic_id;
+    @SerializedName("tagline")
+    private String user_tag;
 
-    public int getTopic_id() {
-        return topic_id;
-    }
+    @SerializedName("name")
+    private String topic_name;
 
-    public void setTopic_id(int topic_id) {
-        this.topic_id = topic_id;
-    }
 
     public String getQues_text() {
         return ques_text;
     }
 
-    public void setQues_text(String ques_text) {
-        this.ques_text = ques_text;
+    public String getUser_name() {
+        return user_name;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public String getUser_tag() {
+        return user_tag;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public String getTopic_name() {
+        return topic_name;
     }
 }

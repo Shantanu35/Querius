@@ -75,6 +75,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/shantanu/.android/build-cache/d108fda665246803af5edcca4a4cd5f5aca1be0e/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="21a28ff219324575b509d7c471487450d0c04584">
+        <dex dex="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1dc4e3db887b559ffd9541c30ae89bc21678ccb5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/shantanu/.android/build-cache/94f7dd752042870d1c9c5b8142f4394d82d877fa/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -90,6 +99,15 @@
         revision="26.0.1"
         sha1="4119ea97a7191ff9b8f33b534ea220448f62f491">
         <dex dex="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_17c04fe69a41fcb736d100602a019c3096907ded/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shantanu/.android/build-cache/23816b6b2c47532cb2c9c56245eb7abb0791d984/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="37ca756004128e1b554dd52aad9a179fcea18925">
+        <dex dex="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2e8ca40a5cb9dc161578b0c44e68dd7da95b7a9b/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -241,7 +259,7 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="4e3f1e640f3c00f74713c050bdaa17bb215978a2">
+        sha1="30393d892cf899c3d5ed7c9ae11bbd74bfcb5948">
         <dex dex="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_df3d1bce91d88b95400999ad565006d8514d85eb/classes.dex" />
     </item>
     <item

@@ -12,6 +12,6 @@ import retrofit2.http.POST;
 
 public interface get_detailed_fromQuesAPI {
 
-    @POST("db_getQues.php")
+    @POST("db_get_home.php")
     public Call<List<get_detailed_fromQues>> getQues();
 }

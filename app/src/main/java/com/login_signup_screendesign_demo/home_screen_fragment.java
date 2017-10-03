@@ -45,8 +45,6 @@ public class home_screen_fragment extends Fragment {
 
     private List<String> ques_list,user_name,user_tagline,topic_name;
 
-    private List<Integer> user_id,topic_id;
-
     private List<get_detailed_fromQues> list;
 
     private List<String> user_image;
@@ -79,12 +77,10 @@ public class home_screen_fragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         ques_list= new ArrayList<>();
-        user_id= new ArrayList<>();
         user_name= new ArrayList<>();
         user_image= new ArrayList<>();
         user_tagline= new ArrayList<>();
         topic_name = new ArrayList<>();
-        topic_id = new ArrayList<>();
 
 
 
@@ -119,12 +115,14 @@ public class home_screen_fragment extends Fragment {
                     while (i >= 0) {
                         ques_list.add(list.get(i).getQues_text());
                         Log.d(TAG, "Ques is :" + list.get(i).getQues_text());
-                        user_id.add(list.get(i).getUser_id());
-                        topic_id.add(list.get(i).getTopic_id());
+                        user_name.add(list.get(i).getUser_name());
+                        Log.d(TAG,"The user name is:"+list.get(i).getUser_name());
+                        user_tagline.add(list.get(i).getUser_tag());
+                        topic_name.add(list.get(i).getTopic_name());
                         i--;
                     }
-                    get_user_information(0);
-
+                    adapter = new RecyclerAdapter(ques_list, user_name, user_tagline, user_image,topic_name,getFragmentManager());
+                    recyclerView.setAdapter(adapter);
 
                 }
                 else{
@@ -142,123 +140,123 @@ public class home_screen_fragment extends Fragment {
 
     }
 
-
-    private void get_user_information(final int i){
-
-        int uid=-1;
-
-
-            Log.d(TAG,"The value of i is:"+i);
-
-
-            if(i==user_id.size()){
-                Log.d(TAG,"Data Finished");
-                return;
-            }
-
 //
-//            while (i<user_id.size()) {
-                Log.d(TAG, "Inside getuserinfo");
-
-                uid = user_id.get(i);
-
-//            Log.d(TAG,"The user id is :"+uid);
-
-
-//            function1();
-
-                final Retrofit retrofit = new Retrofit.Builder().baseUrl(ROOT_URL).addConverterFactory(GsonConverterFactory.create()).build();
-                get_user_info info = retrofit.create(get_user_info.class);
-
-                Call<List<getUser_Info>> call = info.u_info(uid);
-
-
-                Log.d(TAG, "The user id is : " + uid);
-                final int finalI = i;
-
-
-        final int finalI1 = i;
-        call.enqueue(new Callback<List<getUser_Info>>() {
-                    @Override
-                    public void onResponse(Call<List<getUser_Info>> call, Response<List<getUser_Info>> response) {
-                        if (response.isSuccessful()) {
-                            Log.d(TAG, "Inside getting user info");
-                            List<getUser_Info> uinfo = response.body();
-                            getUser_Info userInfo = uinfo.get(0);
-                            user_name.add(userInfo.getUser_name());
-                            Log.d(TAG, "User Name" + user_name.get(finalI));
-                            user_tagline.add(userInfo.getUser_tag());
-
-                            if(finalI==user_id.size()-1) {
-                                get_topic_name(0);
-                            }
-//                        user_image.add(userInfo.getUser_image());
-                                 get_user_information(i+1);
-
-
-                        } else {
-                            Log.d(TAG, "The User does not exists");
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<List<getUser_Info>> call, Throwable t) {
-
-                        Log.d(TAG, "Inside user onFailure");
-                    }
-                });
-
-//                i++;
+//    private void get_user_information(final int i){
+//
+//        int uid=-1;
+//
+//
+//            Log.d(TAG,"The value of i is:"+i);
+//
+//
+//            if(i==user_id.size()){
+//                Log.d(TAG,"Data Finished");
+//                return;
 //            }
-
-
-
-
-    }
-
-
-
-    private void get_topic_name(final int i){
-
-            int tid=-1;
-
-
-        if(i==topic_id.size()){
-            Log.d(TAG,"Data Finished inside topic");
-            return;
-        }
-
-        tid = topic_id.get(i);
-
-        final Retrofit retrofit = new Retrofit.Builder().baseUrl(ROOT_URL).addConverterFactory(GsonConverterFactory.create()).build();
-        topicAPI tapi = retrofit.create(topicAPI.class);
-
-        Call<List<topic_details>> call = tapi.get_topic_details(tid);
-
-        call.enqueue(new Callback<List<topic_details>>() {
-            @Override
-            public void onResponse(Call<List<topic_details>> call, Response<List<topic_details>> response) {
-                if(response.isSuccessful()){
-                    List<topic_details> list = response.body();
-                    topic_name.add(list.get(0).getTopic_name());
-                    Log.d(TAG,"The topic name is :"+topic_name.get(i));
-                    if(i==topic_id.size()-1) {
-                        adapter = new RecyclerAdapter(ques_list, user_name, user_tagline, user_image,topic_name);
-                        recyclerView.setAdapter(adapter);
-                    }
-                    get_topic_name(i+1);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<topic_details>> call, Throwable t) {
-                Log.d(TAG, "Inside topic onFailure");
-            }
-        });
-
-
-
-    }
+//
+////
+////            while (i<user_id.size()) {
+//                Log.d(TAG, "Inside getuserinfo");
+//
+//                uid = user_id.get(i);
+//
+////            Log.d(TAG,"The user id is :"+uid);
+//
+//
+////            function1();
+//
+//                final Retrofit retrofit = new Retrofit.Builder().baseUrl(ROOT_URL).addConverterFactory(GsonConverterFactory.create()).build();
+//                get_user_info info = retrofit.create(get_user_info.class);
+//
+//                Call<List<getUser_Info>> call = info.u_info(uid);
+//
+//
+//                Log.d(TAG, "The user id is : " + uid);
+//                final int finalI = i;
+//
+//
+//        final int finalI1 = i;
+//        call.enqueue(new Callback<List<getUser_Info>>() {
+//                    @Override
+//                    public void onResponse(Call<List<getUser_Info>> call, Response<List<getUser_Info>> response) {
+//                        if (response.isSuccessful()) {
+//                            Log.d(TAG, "Inside getting user info");
+//                            List<getUser_Info> uinfo = response.body();
+//                            getUser_Info userInfo = uinfo.get(0);
+//                            user_name.add(userInfo.getUser_name());
+//                            Log.d(TAG, "User Name" + user_name.get(finalI));
+//                            user_tagline.add(userInfo.getUser_tag());
+//
+//                            if(finalI==user_id.size()-1) {
+//                                get_topic_name(0);
+//                            }
+////                        user_image.add(userInfo.getUser_image());
+//                                 get_user_information(i+1);
+//
+//
+//                        } else {
+//                            Log.d(TAG, "The User does not exists");
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<List<getUser_Info>> call, Throwable t) {
+//
+//                        Log.d(TAG, "Inside user onFailure");
+//                    }
+//                });
+//
+////                i++;
+////            }
+//
+//
+//
+//
+//    }
+//
+//
+//
+//    private void get_topic_name(final int i){
+//
+//            int tid=-1;
+//
+//
+//        if(i==topic_id.size()){
+//            Log.d(TAG,"Data Finished inside topic");
+//            return;
+//        }
+//
+//        tid = topic_id.get(i);
+//
+//        final Retrofit retrofit = new Retrofit.Builder().baseUrl(ROOT_URL).addConverterFactory(GsonConverterFactory.create()).build();
+//        topicAPI tapi = retrofit.create(topicAPI.class);
+//
+//        Call<List<topic_details>> call = tapi.get_topic_details(tid);
+//
+//        call.enqueue(new Callback<List<topic_details>>() {
+//            @Override
+//            public void onResponse(Call<List<topic_details>> call, Response<List<topic_details>> response) {
+//                if(response.isSuccessful()){
+//                    List<topic_details> list = response.body();
+//                    topic_name.add(list.get(0).getTopic_name());
+//                    Log.d(TAG,"The topic name is :"+topic_name.get(i));
+//                    if(i==topic_id.size()-1) {
+//                        adapter = new RecyclerAdapter(ques_list, user_name, user_tagline, user_image,topic_name);
+//                        recyclerView.setAdapter(adapter);
+//                    }
+//                    get_topic_name(i+1);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<topic_details>> call, Throwable t) {
+//                Log.d(TAG, "Inside topic onFailure");
+//            }
+//        });
+//
+//
+//
+//    }
 
 //    private void function1(){
 //        final Retrofit retrofit = new Retrofit.Builder().baseUrl(ROOT_URL).addConverterFactory(GsonConverterFactory.create()).build();

@@ -73,6 +73,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.login_signup_screendesign_demo.Main3Activity" />
+        <activity android:name="com.login_signup_screendesign_demo.Answer_Activity" />
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
             android:excludeFromRecents="true"

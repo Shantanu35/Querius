@@ -128,6 +128,10 @@
         "source": "/home/shantanu/.android/build-cache/b09bec42117fa05b17e1e1a6f76f59297c27667f/output/res/layout/select_dialog_singlechoice_material.xml"
     },
     {
+        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/layout/all_answers.xml",
+        "source": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/res/layout/all_answers.xml"
+    },
+    {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/layout/fragment_three.xml",
         "source": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/res/layout/fragment_three.xml"
     },
@@ -280,6 +284,10 @@
         "source": "/home/shantanu/.android/build-cache/b09bec42117fa05b17e1e1a6f76f59297c27667f/output/res/layout/abc_screen_content_include.xml"
     },
     {
+        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/layout/answer_a_ques.xml",
+        "source": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/res/layout/answer_a_ques.xml"
+    },
+    {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
         "source": "/home/shantanu/.android/build-cache/b09bec42117fa05b17e1e1a6f76f59297c27667f/output/res/layout/abc_dialog_title_material.xml"
     },
@@ -334,6 +342,10 @@
     {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/layout/notification_template_custom_big.xml",
         "source": "/home/shantanu/.android/build-cache/b09bec42117fa05b17e1e1a6f76f59297c27667f/output/res/layout/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/layout/activity_answer_.xml",
+        "source": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/res/layout/activity_answer_.xml"
     },
     {
         "merged": "/Users/Sonu/Documents/AndroidWorkspace/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/layout/activity_main.xml",
@@ -438,6 +450,10 @@
     {
         "merged": "/Users/Sonu/Documents/AndroidWorkspace/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
         "source": "/Users/Sonu/.android/build-cache/83ce70d2e27e91f606eec9406c0566e88fad1a48/output/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/layout/fragment_home2_screen.xml",
+        "source": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/res/layout/fragment_home2_screen.xml"
     },
     {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/layout/custom_toast.xml",

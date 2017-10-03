@@ -1,5 +1,9 @@
 package com.login_signup_screendesign_demo;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,17 +36,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     private List<String> user_image;
 
+    private FragmentManager manager;
+
 
 //    final private String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
 //    final private String TAG = "Adapter";
 
 
-    public RecyclerAdapter(List<String> ques_list, List<String> user_name, List<String> user_tagline, List<String> user_image,List<String> topic_name) {
+    public RecyclerAdapter(List<String> ques_list, List<String> user_name, List<String> user_tagline, List<String> user_image, List<String> topic_name, FragmentManager manager) {
         this.ques_list = ques_list;
         this.user_name = user_name;
         this.user_tagline = user_tagline;
         this.user_image = user_image;
         this.topic_name = topic_name;
+        this.manager = manager;
     }
 
     @Override
@@ -64,20 +71,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
 
         holder.tv_ques.setText(ques_list.get(position));
         holder.tv_name.setText(user_name.get(position));
         holder.tv_qual.setText(user_tagline.get(position));
         holder.tv_top.setText(topic_name.get(position));
+
         holder.iview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                Log.d("TAG","Inside onCLick");
+                manager.beginTransaction().replace(R.id.viewpager,new home2_screen()).commit();
             }
         });
-
-
     }
 
     @Override
