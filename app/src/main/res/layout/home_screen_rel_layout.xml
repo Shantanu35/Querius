@@ -6,6 +6,7 @@
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
     android:paddingTop="5dp"
+    android:id="@+id/hs_rel"
     android:paddingBottom="5dp">
 
     <android.support.design.widget.CoordinatorLayout
@@ -14,6 +15,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/co_layout"
         android:fitsSystemWindows="true" />
 
     <android.support.v7.widget.RecyclerView

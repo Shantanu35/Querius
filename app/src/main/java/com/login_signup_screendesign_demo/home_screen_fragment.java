@@ -5,13 +5,17 @@ import android.database.Observable;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.common.data.DataBufferObserver;
@@ -59,11 +63,32 @@ public class home_screen_fragment extends Fragment {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
+    RelativeLayout relativeLayout;
+
+    CoordinatorLayout coordinatorLayout;
 
 
     public home_screen_fragment() {
         // Required empty public constructor
     }
+
+
+
+    FragmentCommunication communication = new FragmentCommunication() {
+        @Override
+        public void respond(String name, String tag, String qtxt,String t_name) {
+            home2_screen fragmentB=new home2_screen();
+            Bundle bundle=new Bundle();
+            bundle.putString("NAME",name);
+            bundle.putString("TAGLINE",tag);
+            bundle.putString("QUESTION",qtxt);
+            bundle.putString("TOPIC",t_name);
+            fragmentB.setArguments(bundle);
+            FragmentManager manager=getFragmentManager();
+            FragmentTransaction transaction=manager.beginTransaction();
+            transaction.replace(R.id.hs_rel,fragmentB).commit();
+        }
+    };
 
 
     @Override
@@ -75,6 +100,11 @@ public class home_screen_fragment extends Fragment {
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(home_screen_fragment.this.getActivity());
         recyclerView.setLayoutManager(layoutManager);
+
+        relativeLayout = (RelativeLayout) v.findViewById(R.id.hs_rel);
+        coordinatorLayout = (CoordinatorLayout) v.findViewById(R.id.co_layout);
+
+
 
         ques_list= new ArrayList<>();
         user_name= new ArrayList<>();
@@ -121,7 +151,7 @@ public class home_screen_fragment extends Fragment {
                         topic_name.add(list.get(i).getTopic_name());
                         i--;
                     }
-                    adapter = new RecyclerAdapter(ques_list, user_name, user_tagline, user_image,topic_name,getFragmentManager());
+                    adapter = new RecyclerAdapter(ques_list, user_name, user_tagline, user_image,topic_name,getChildFragmentManager(),recyclerView,communication);
                     recyclerView.setAdapter(adapter);
 
                 }
@@ -137,6 +167,9 @@ public class home_screen_fragment extends Fragment {
                 t.printStackTrace();
             }
         });
+
+
+
 
     }
 

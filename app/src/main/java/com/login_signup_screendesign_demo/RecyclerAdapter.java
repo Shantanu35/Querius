@@ -3,6 +3,9 @@ package com.login_signup_screendesign_demo;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -39,17 +43,24 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private FragmentManager manager;
 
 
+    RecyclerView recyclerView;
+
+    FragmentCommunication communication;
+
+
 //    final private String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
 //    final private String TAG = "Adapter";
 
 
-    public RecyclerAdapter(List<String> ques_list, List<String> user_name, List<String> user_tagline, List<String> user_image, List<String> topic_name, FragmentManager manager) {
+    public RecyclerAdapter(List<String> ques_list, List<String> user_name, List<String> user_tagline, List<String> user_image, List<String> topic_name, FragmentManager manager,RecyclerView recyclerView,FragmentCommunication communication) {
         this.ques_list = ques_list;
         this.user_name = user_name;
         this.user_tagline = user_tagline;
         this.user_image = user_image;
         this.topic_name = topic_name;
         this.manager = manager;
+        this.recyclerView=recyclerView;
+        this.communication=communication;
     }
 
     @Override
@@ -71,7 +82,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         holder.tv_ques.setText(ques_list.get(position));
         holder.tv_name.setText(user_name.get(position));
@@ -82,7 +93,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 Log.d("TAG","Inside onCLick");
-                manager.beginTransaction().replace(R.id.viewpager,new home2_screen()).commit();
+
+                recyclerView.setVisibility(View.GONE);
+//                manager.beginTransaction().replace(R.id.hs_rel,new home2_screen()).commit();
+                home2_screen fragment = new home2_screen();
+                Bundle bundle = new Bundle();
+                bundle.putString("NAME",user_name.get(position));
+                bundle.putString("TAGLINE",user_tagline.get(position));
+                bundle.putString("QUESTION",ques_list.get(position));
+                bundle.putString("TOPIC",topic_name.get(position));
+                fragment.setArguments(bundle);
+
+                holder.mCommunication.respond(user_name.get(position),user_tagline.get(position),ques_list.get(position),topic_name.get(position));
+
+
             }
         });
     }
@@ -98,6 +122,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         TextView tv_ques,tv_name,tv_qual,tv_top;
         ImageView iview;
         RoundedImageView imageView;
+        RelativeLayout relativeLayout;
+        FragmentCommunication mCommunication;
         public ViewHolder(View itemView) {
             super(itemView);
 
@@ -107,6 +133,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             imageView = (RoundedImageView) itemView.findViewById(R.id.logo_in_homescreen);
             tv_top = (TextView) itemView.findViewById(R.id.ques_title);
             iview = (ImageView) itemView.findViewById(R.id.btn_answers);
+            relativeLayout = (RelativeLayout) itemView.findViewById(R.id.rel_main);
+            mCommunication = communication;
+
+
 
         }
     }

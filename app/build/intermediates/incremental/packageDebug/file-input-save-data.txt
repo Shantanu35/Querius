@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Oct 03 20:08:21 IST 2017
+#Tue Oct 03 20:48:47 IST 2017
 20.base=/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/resources-debug.ap_
 143.base=/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/resources-debug.ap_
 340.file=/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/resources-debug.ap_/res/drawable-xxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png
