@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
     <!--<include-->
         <!--android:id="@+id/toolbar"-->
         <!--layout="@layout/toolbar"></include>-->
@@ -20,11 +20,12 @@
             android:id="@+id/logo"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/thoms"
-            android:scaleType="centerCrop"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/index"
             />
+
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
@@ -127,4 +128,17 @@
     </LinearLayout>
 
     <include layout="@layout/row_list"></include>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/cardview_dark_background"
+        android:baseline="@dimen/cardview_default_elevation"
+        app:backgroundTint="@android:color/holo_blue_bright"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        app:srcCompat="@drawable/ic_person_add_black_24dp" />
+
 </LinearLayout>

@@ -46,7 +46,7 @@
         android:theme="@style/AppTheme" >
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.login_signup_screendesign_demo.com.vansuita.pickimage.provider"
+            android:authorities="com.login_signup_screendesign_demo.com.login_signup_screendesign_demo.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -72,6 +72,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name="com.login_signup_screendesign_demo.Main3Activity" />
+        <activity android:name="com.login_signup_screendesign_demo.Answer_Activity" />
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
             android:excludeFromRecents="true"

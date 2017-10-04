@@ -1,6 +1,7 @@
 package com.login_signup_screendesign_demo;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -45,13 +46,14 @@ public class One extends Fragment {
         tv1.setText("Shantanu Jain");
         tv2.setText("Android Developer");
         expandableTextView.setText(longText);
-//        imageButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 //                Toast.makeText(getContext(),"Hello",Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
+                Intent intent = new Intent(One.this.getActivity(),Main3Activity.class);
+                startActivity(intent);
+            }
+        });
 
 
 

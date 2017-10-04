@@ -17,9 +17,9 @@ public interface RegisterAPI {
     @FormUrlEncoded
     @POST("db_insert.php")
     public Call<Integer> insertUser(
-           @Field("Name") String name,
-           @Field("Email_ID") String email,
-           @Field("Address") String addr,
-           @Field("Mobile_No") String mob,
-           @Field("Password") String passwd);//           Callback<retrofit2.Response> callback);
+           @Field("User_name") String name,
+           @Field("email") String email,
+           @Field("location") String addr,
+           @Field("tagline") String tag,
+           @Field("password") String passwd);//           Callback<retrofit2.Response> callback);
 }
