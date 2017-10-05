@@ -62,7 +62,7 @@ import static android.app.Activity.RESULT_OK;
 // * Use the {@link Profile_Fragment#newInstance} factory method to
 // * create an instance of this fragment.
 // */
-public class Profile_Fragment extends Fragment implements MenuItem.OnMenuItemClickListener  {
+public class Profile_Fragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -169,36 +169,36 @@ public class Profile_Fragment extends Fragment implements MenuItem.OnMenuItemCli
         });
 
 
-        iview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PopupMenu dropDownMenu = new PopupMenu(Profile_Fragment.this.getActivity(), iview);
-                dropDownMenu.getMenuInflater().inflate(R.menu.menu_drop_down, dropDownMenu.getMenu());
-                dropDownMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-
-                        switch (menuItem.getItemId()){
-                            case R.id.dropdown_menu1:
-                                onDestroy();
-
-                                FragmentManager fragmentManager = null;
-                                fragmentManager
-                                        .beginTransaction()
-                                        .replace(R.id.frameContainer, new Login_Fragment(),
-                                                Utils.Login_Fragment).commit();
-                                return true;
-                        }
-
-//                        Toast.makeText(Profile_Fragment.this.getActivity(), "You have clicked " + menuItem.getTitle(), Toast.LENGTH_LONG).show();
-                        return true;
-                    }
-                });
-                dropDownMenu.show();
-            }
-
-        });
+//        iview.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                PopupMenu dropDownMenu = new PopupMenu(Profile_Fragment.this.getActivity(), iview);
+//                dropDownMenu.getMenuInflater().inflate(R.menu.menu_drop_down, dropDownMenu.getMenu());
+//                dropDownMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+//
+//                    @Override
+//                    public boolean onMenuItemClick(MenuItem menuItem) {
+//
+//                        switch (menuItem.getItemId()){
+//                            case R.id.dropdown_menu1:
+//                                onDestroy();
+//
+//                                FragmentManager fragmentManager = null;
+//                                fragmentManager
+//                                        .beginTransaction()
+//                                        .replace(R.id.frameContainer, new Login_Fragment(),
+//                                                Utils.Login_Fragment).commit();
+//                                return true;
+//                        }
+//
+////                        Toast.makeText(Profile_Fragment.this.getActivity(), "You have clicked " + menuItem.getTitle(), Toast.LENGTH_LONG).show();
+//                        return true;
+//                    }
+//                });
+//                dropDownMenu.show();
+//            }
+//
+//        });
 
 //        Bitmap bitmap=null;
 //        try {
@@ -380,8 +380,8 @@ public class Profile_Fragment extends Fragment implements MenuItem.OnMenuItemCli
     }
 
 
-    @Override
-    public boolean onMenuItemClick(MenuItem menuItem) {
-        return false;
-    }
+//    @Override
+//    public boolean onMenuItemClick(MenuItem menuItem) {
+//        return false;
+//    }
 }

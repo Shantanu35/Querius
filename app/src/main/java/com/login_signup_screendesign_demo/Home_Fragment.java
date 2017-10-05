@@ -52,8 +52,11 @@ public class Home_Fragment extends Fragment {
         tabLayout = (TabLayout) v.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
-        Intent i = getActivity().getIntent();
-        info = (User_Info) i.getSerializableExtra("Com_object");
+//        Intent i = getActivity().getIntent();
+//        info = (User_Info) i.getSerializableExtra("Com_object");
+
+
+        info = (User_Info) getArguments().getSerializable("Com_object");
 
         Log.d("hello","Info is inside HOME FRAGMENT:"+info);
 

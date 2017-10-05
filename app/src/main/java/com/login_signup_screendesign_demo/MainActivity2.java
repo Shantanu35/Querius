@@ -13,14 +13,18 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
-public class MainActivity2 extends AppCompatActivity{
+public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuItemClickListener{
 
 //    private TextView mTextMessage;
 
     User_Info userInfo;
     MenuItem menuItem;
+
+    ImageView iview;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -31,8 +35,12 @@ public class MainActivity2 extends AppCompatActivity{
                 case R.id.navigation_home:
 //                    mTextMessage.setText(R.string.title_home);
                     FragmentManager fragmentManager1 = getSupportFragmentManager();
-                    getIntent().putExtra("Com_object",userInfo);
-                    fragmentManager1.beginTransaction().replace(R.id.content,new Home_Fragment()).commit();
+//                    getIntent().putExtra("Com_object",userInfo);
+                    Home_Fragment fragment123 = new Home_Fragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("Com_object",userInfo);
+                    fragment123.setArguments(bundle);
+                    fragmentManager1.beginTransaction().replace(R.id.content,fragment123).commit();
 
                     return true;
                 case R.id.navigation_notifications:
@@ -63,19 +71,65 @@ public class MainActivity2 extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        FragmentManager fragmentManager2 = getSupportFragmentManager();
-        getIntent().putExtra("Com_object",userInfo);
-        fragmentManager2.beginTransaction().replace(R.id.content,new Home_Fragment()).commit();
+
 
         Intent intent = getIntent();
         userInfo = (User_Info) intent.getExtras().getSerializable("Object");
+
+
+
+        FragmentManager fragmentManager2 = getSupportFragmentManager();
+        Home_Fragment fragment123 = new Home_Fragment();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Com_object",userInfo);
+        fragment123.setArguments(bundle);
+        fragmentManager2.beginTransaction().replace(R.id.content,fragment123).commit();
 //        if(userInfo != null) {
 //            Log.d("User_info", "" + userInfo.getName());
 //        }
+        iview = (ImageView) findViewById(R.id.toggle);
+
+        iview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu dropDownMenu = new PopupMenu(getApplicationContext(), iview);
+                dropDownMenu.getMenuInflater().inflate(R.menu.menu_drop_down, dropDownMenu.getMenu());
+                dropDownMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+
+                        switch (menuItem.getItemId()){
+                            case R.id.dropdown_menu1:
+                                onDestroy();
+
+                                FragmentManager fragmentManager = null;
+                                fragmentManager
+                                        .beginTransaction()
+                                        .replace(R.id.frameContainer, new Login_Fragment(),
+                                                Utils.Login_Fragment).commit();
+                                return true;
+                        }
+
+//                        Toast.makeText(Profile_Fragment.this.getActivity(), "You have clicked " + menuItem.getTitle(), Toast.LENGTH_LONG).show();
+                        return true;
+                    }
+                });
+                dropDownMenu.show();
+            }
+
+        });
+
+
 
 //        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        return false;
     }
 
 
