@@ -8,6 +8,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class get_detailed_fromQues {
 
+    @SerializedName("questionid")
+    private int ques_id;
+
+
     @SerializedName("qtext")
     private String ques_text;
 
@@ -23,6 +27,10 @@ public class get_detailed_fromQues {
 
     public String getQues_text() {
         return ques_text;
+    }
+
+    public int getQues_id() {
+        return ques_id;
     }
 
     public String getUser_name() {

@@ -6,6 +6,6 @@ package com.login_signup_screendesign_demo;
 
 public interface FragmentCommunication {
 
-    void respond(String name,String tag,String qtxt,String t_name);
+    void respond(int qid,String name,String tag,String qtxt,String t_name);
 
 }

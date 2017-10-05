@@ -31,6 +31,7 @@ public class QuestionProfile extends Fragment {
 
 
     private List<String> ques_list,topic_name,user_name,user_tagline,user_image;
+    private List<Integer>qid;
 
     String u_name,u_tag;
 
@@ -52,7 +53,7 @@ public class QuestionProfile extends Fragment {
 
     FragmentCommunication communication = new FragmentCommunication() {
         @Override
-        public void respond(String name, String tag, String qtxt,String t_name) {
+        public void respond(int qid,String name, String tag, String qtxt,String t_name) {
             home2_screen fragmentB=new home2_screen();
             Bundle bundle=new Bundle();
             bundle.putString("NAME",name);
@@ -60,6 +61,7 @@ public class QuestionProfile extends Fragment {
             bundle.putString("QUESTION",qtxt);
             bundle.putString("TOPIC",t_name);
             bundle.putSerializable("Com_object",info);
+            bundle.putInt("QUESTION ID",qid);
             fragmentB.setArguments(bundle);
             FragmentManager manager=getFragmentManager();
             FragmentTransaction transaction=manager.beginTransaction();
@@ -81,6 +83,7 @@ public class QuestionProfile extends Fragment {
 
         relativeLayout = (RelativeLayout) v.findViewById(R.id.hs_rel);
         ques_list= new ArrayList<>();
+        qid = new ArrayList<>();
         topic_name = new ArrayList<>();
        user_name = new ArrayList<>();
         user_tagline = new ArrayList<>();
@@ -124,9 +127,10 @@ public class QuestionProfile extends Fragment {
                         topic_name.add(list.get(i).getT_name());
                         user_name.add(u_name);
                         user_tagline.add(u_tag);
+                        qid.add(list.get(i).getQid());
                         i--;
                     }
-                    adapter = new RecyclerAdapter(ques_list, user_name, user_tagline, user_image,topic_name,getChildFragmentManager(),recyclerView,communication);
+                    adapter = new RecyclerAdapter(qid,ques_list, user_name, user_tagline, user_image,topic_name,getChildFragmentManager(),recyclerView,communication);
                     recyclerView.setAdapter(adapter);
 
                 }

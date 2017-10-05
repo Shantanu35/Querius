@@ -27,6 +27,7 @@ public class Main3Activity extends AppCompatActivity {
 
     private String ques,q_user,q_tag,q_top;
     private String ans_text,ans_user,ans_tag;
+    private int aid;
 
     User_Info info;
     private TextView tv_ques,tv_q_user,tv_q_tag,tv_ans,tv_ans_tag,tv_ans_user,tv_top;
@@ -50,6 +51,7 @@ public class Main3Activity extends AppCompatActivity {
         ans_user = bundle.getString("A_USER");
         ans_tag = bundle.getString("A_TAG");
         info = (User_Info) bundle.getSerializable("Com_object");
+        aid=bundle.getInt("ANSWER ID");
             Log.d("hello","inside main3:"+info);
 
 
@@ -85,7 +87,7 @@ public class Main3Activity extends AppCompatActivity {
                 final Retrofit retrofit = new Retrofit.Builder().baseUrl(ROOT_URL).addConverterFactory(GsonConverterFactory.create()).build();
                 answer_upvoteAPI upvoteAPI = retrofit.create(answer_upvoteAPI.class);
 
-                Call<Integer> call = upvoteAPI.do_upvote(info.getUser_id(),ans_text);
+                Call<Integer> call = upvoteAPI.do_upvote(info.getUser_id(),aid);
 
                 call.enqueue(new Callback<Integer>() {
                     @Override

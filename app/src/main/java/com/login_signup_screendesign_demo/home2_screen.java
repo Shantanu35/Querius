@@ -34,6 +34,9 @@ public class home2_screen extends Fragment {
     TextView question,tag,u_name,topic;
 
     private List<String> ans_text,user_name,user_tag;
+    private List<Integer>aid;
+
+    private int qid;
 
     final private String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
     final private String TAG = "Answer_Screen";
@@ -61,6 +64,7 @@ public class home2_screen extends Fragment {
         q_tag = getArguments().getString("TAGLINE");
         q_topic = getArguments().getString("TOPIC");
         info = (User_Info) getArguments().getSerializable("Com_object");
+        qid = getArguments().getInt("QUESTION ID");
 
 
             Log.d("hello","info inside home2 is :"+info);
@@ -85,6 +89,8 @@ public class home2_screen extends Fragment {
         ans_text= new ArrayList<>();
         user_name= new ArrayList<>();
         user_tag= new ArrayList<>();
+        aid=new ArrayList<>();
+
 
 
         getAnswers();
@@ -96,7 +102,7 @@ public class home2_screen extends Fragment {
         final Retrofit retrofit = new Retrofit.Builder().baseUrl(ROOT_URL).addConverterFactory(GsonConverterFactory.create()).build();
         AnswerAPI api = retrofit.create(AnswerAPI.class);
 
-        Call<List<Answer_model>> model = api.get_all_ans(ques_txt);
+        Call<List<Answer_model>> model = api.get_all_ans(qid);
 
         model.enqueue(new Callback<List<Answer_model>>() {
             @Override
@@ -109,10 +115,11 @@ public class home2_screen extends Fragment {
                         ans_text.add(list.get(i).getAns_text());
                         user_name.add(list.get(i).getU_name());
                         user_tag.add(list.get(i).getU_tag());
+                        aid.add(list.get(i).getAns_id());
                         i--;
                     }
 
-                    adapter = new RecyclerViewAdapter(ques_txt,q_name,q_tag,q_topic,ans_text, user_name, user_tag,home2_screen.this.getActivity(),info);
+                    adapter = new RecyclerViewAdapter(aid,ques_txt,q_name,q_tag,q_topic,ans_text, user_name, user_tag,home2_screen.this.getActivity(),info);
                     recyclerView.setAdapter(adapter);
 
 

@@ -13,6 +13,6 @@ public interface answer_upvoteAPI {
 
     @FormUrlEncoded
     @POST("db_upvote_ans.php")
-    public Call<Integer> do_upvote(@Field("userid") int uid,@Field("atext") String ans_text);
+    public Call<Integer> do_upvote(@Field("userid") int uid,@Field("answerid") int ans_id);
 
 }

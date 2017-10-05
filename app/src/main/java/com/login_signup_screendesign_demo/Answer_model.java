@@ -8,6 +8,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class Answer_model {
 
+    @SerializedName("answerid")
+    private int ans_id;
+
+    public int getAns_id() {
+        return ans_id;
+    }
+
     @SerializedName("atext")
     private String ans_text;
 

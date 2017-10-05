@@ -53,6 +53,8 @@ public class home_screen_fragment extends Fragment {
 
     private List<String> user_image;
 
+    private List<Integer>qid;
+
 
 
     private getUser_Info uinfo;
@@ -78,13 +80,14 @@ public class home_screen_fragment extends Fragment {
 
     FragmentCommunication communication = new FragmentCommunication() {
         @Override
-        public void respond(String name, String tag, String qtxt,String t_name) {
+        public void respond(int qid,String name, String tag, String qtxt,String t_name) {
             home2_screen fragmentB=new home2_screen();
             Bundle bundle=new Bundle();
             bundle.putString("NAME",name);
             bundle.putString("TAGLINE",tag);
             bundle.putString("QUESTION",qtxt);
             bundle.putString("TOPIC",t_name);
+            bundle.putInt("QUESTION ID",qid);
             bundle.putSerializable("Com_object",info);
             fragmentB.setArguments(bundle);
             FragmentManager manager=getFragmentManager();
@@ -120,6 +123,7 @@ public class home_screen_fragment extends Fragment {
         user_image= new ArrayList<>();
         user_tagline= new ArrayList<>();
         topic_name = new ArrayList<>();
+        qid=new ArrayList<>();
 
 
 
@@ -158,9 +162,10 @@ public class home_screen_fragment extends Fragment {
                         Log.d(TAG,"The user name is:"+list.get(i).getUser_name());
                         user_tagline.add(list.get(i).getUser_tag());
                         topic_name.add(list.get(i).getTopic_name());
+                        qid.add(list.get(i).getQues_id());
                         i--;
                     }
-                    adapter = new RecyclerAdapter(ques_list, user_name, user_tagline, user_image,topic_name,getChildFragmentManager(),recyclerView,communication);
+                    adapter = new RecyclerAdapter(qid,ques_list, user_name, user_tagline, user_image,topic_name,getChildFragmentManager(),recyclerView,communication);
                     recyclerView.setAdapter(adapter);
 
                 }

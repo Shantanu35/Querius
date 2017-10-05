@@ -40,6 +40,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     private List<String> user_image;
 
+    private List<Integer>ques_id;
     private FragmentManager manager;
 
 
@@ -52,13 +53,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 //    final private String TAG = "Adapter";
 
 
-    public RecyclerAdapter(List<String> ques_list, List<String> user_name, List<String> user_tagline, List<String> user_image, List<String> topic_name, FragmentManager manager,RecyclerView recyclerView,FragmentCommunication communication) {
+    public RecyclerAdapter(List<Integer> ques_id,List<String> ques_list, List<String> user_name, List<String> user_tagline, List<String> user_image, List<String> topic_name, FragmentManager manager,RecyclerView recyclerView,FragmentCommunication communication) {
         this.ques_list = ques_list;
         this.user_name = user_name;
         this.user_tagline = user_tagline;
         this.user_image = user_image;
         this.topic_name = topic_name;
         this.manager = manager;
+        this.ques_id=ques_id;
         this.recyclerView=recyclerView;
         this.communication=communication;
     }
@@ -102,9 +104,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 bundle.putString("TAGLINE",user_tagline.get(position));
                 bundle.putString("QUESTION",ques_list.get(position));
                 bundle.putString("TOPIC",topic_name.get(position));
+                bundle.putInt("QUESTION ID",ques_id.get(position));
                 fragment.setArguments(bundle);
 
-                holder.mCommunication.respond(user_name.get(position),user_tagline.get(position),ques_list.get(position),topic_name.get(position));
+                holder.mCommunication.respond(ques_id.get(position),user_name.get(position),user_tagline.get(position),ques_list.get(position),topic_name.get(position));
 
 
             }

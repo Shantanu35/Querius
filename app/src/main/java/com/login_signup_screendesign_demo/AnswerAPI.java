@@ -15,6 +15,6 @@ public interface AnswerAPI {
 
     @FormUrlEncoded
     @POST("db_get_answer.php")
-    public Call<List<Answer_model>> get_all_ans(@Field("qtext") String ques_txt);
+    public Call<List<Answer_model>> get_all_ans(@Field("questionid") int qid);
 
 }

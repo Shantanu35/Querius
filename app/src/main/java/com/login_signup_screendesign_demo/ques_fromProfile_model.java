@@ -8,6 +8,14 @@ import com.google.gson.annotations.SerializedName;
 
 public class ques_fromProfile_model {
 
+
+    @SerializedName("questionid")
+    private int qid;
+
+    public int getQid() {
+        return qid;
+    }
+
     @SerializedName("qtext")
     private String qtxt;
 
