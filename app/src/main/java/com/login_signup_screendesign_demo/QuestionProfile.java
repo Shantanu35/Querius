@@ -51,6 +51,44 @@ public class QuestionProfile extends Fragment {
     }
 
 
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View v = inflater.inflate(R.layout.home_screen_rel_layout, container, false);
+
+        recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
+        layoutManager = new LinearLayoutManager(QuestionProfile.this.getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+
+        relativeLayout = (RelativeLayout) v.findViewById(R.id.hs_rel);
+        ques_list= new ArrayList<>();
+        qid = new ArrayList<>();
+        topic_name = new ArrayList<>();
+       user_name = new ArrayList<>();
+        user_tagline = new ArrayList<>();
+
+//        u_name = getArguments().getString("NAME");
+//        u_tag = getArguments().getString("TAGLINE");
+//        userid = getArguments().getInt("USERID");
+
+        info = (User_Info) getArguments().getSerializable("Com_object");
+        Log.d("hello","Info inside Question Profile :"+info);
+
+
+
+        getQues();
+
+
+
+
+
+        return v;
+    }
+
+
+
     FragmentCommunication communication = new FragmentCommunication() {
         @Override
         public void respond(int qid,String name, String tag, String qtxt,String t_name) {
@@ -71,37 +109,6 @@ public class QuestionProfile extends Fragment {
 
 
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        View v = inflater.inflate(R.layout.home_screen_rel_layout, container, false);
-
-        recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
-        layoutManager = new LinearLayoutManager(QuestionProfile.this.getActivity());
-        recyclerView.setLayoutManager(layoutManager);
-
-        relativeLayout = (RelativeLayout) v.findViewById(R.id.hs_rel);
-        ques_list= new ArrayList<>();
-        qid = new ArrayList<>();
-        topic_name = new ArrayList<>();
-       user_name = new ArrayList<>();
-        user_tagline = new ArrayList<>();
-
-        u_name = getArguments().getString("NAME");
-        u_tag = getArguments().getString("TAGLINE");
-        userid = getArguments().getInt("USERID");
-
-
-        getQues();
-
-
-
-
-
-        return v;
-    }
-
 
 
     private void getQues(){
@@ -109,7 +116,7 @@ public class QuestionProfile extends Fragment {
         final Retrofit retrofit = new Retrofit.Builder().baseUrl(ROOT_URL).addConverterFactory(GsonConverterFactory.create()).build();
         ques_fromProfileAPI fromQues = retrofit.create(ques_fromProfileAPI.class);
 
-        Call<List<ques_fromProfile_model>> call = fromQues.get_ques(userid);
+        Call<List<ques_fromProfile_model>> call = fromQues.get_ques(info.getUser_id());
 
         call.enqueue(new Callback<List<ques_fromProfile_model>>() {
             @Override
@@ -125,8 +132,8 @@ public class QuestionProfile extends Fragment {
                         ques_list.add(list.get(i).getQtxt());
                         Log.d(TAG, "Ques is :" + list.get(i).getQtxt());
                         topic_name.add(list.get(i).getT_name());
-                        user_name.add(u_name);
-                        user_tagline.add(u_tag);
+                        user_name.add(info.getName());
+                        user_tagline.add(info.getTagLine());
                         qid.add(list.get(i).getQid());
                         i--;
                     }

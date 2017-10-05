@@ -158,9 +158,10 @@ public class Profile_Fragment extends Fragment {
             public void onClick(View view) {
                 QuestionProfile questionProfile = new QuestionProfile();
                 Bundle bundle = new Bundle();
-                bundle.putString("NAME",info.getName());
-                bundle.putString("TAGLINE",info.getTagLine());
-                bundle.putInt("USERID",info.getUser_id());
+//                bundle.putString("NAME",info.getName());
+//                bundle.putString("TAGLINE",info.getTagLine());
+//                bundle.putInt("USERID",info.getUser_id());
+                bundle.putSerializable("Com_object",info);
                 questionProfile.setArguments(bundle);
                 FragmentManager manager=getFragmentManager();
                 FragmentTransaction transaction=manager.beginTransaction();
