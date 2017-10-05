@@ -6,48 +6,36 @@
     density="xxhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1507126931071"
+    timestamp="1507172860680"
     token="3547827996149842154"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="637" />
+        duration="331" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="123" />
+        duration="13" />
     <task
         name="verifier"
-        duration="16" />
+        duration="1" />
 
-    <artifact
-        location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
-        type="SPLIT" />
-    <artifact
-        location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
-        type="SPLIT" />
-    <artifact
-        location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
-        type="SPLIT" />
     <artifact
         location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
         type="SPLIT" />
-    <artifact
-        location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/outputs/apk/app-debug.apk"
-        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1507124744250"
+        timestamp="1507171886978"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
             location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
@@ -82,23 +70,31 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1507126931071"
+        timestamp="1507172494041"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
             location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
             type="SPLIT" />
         <artifact
             location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/outputs/apk/app-debug.apk"
             type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1507172860680"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
     </build>
 
 </instant-run>

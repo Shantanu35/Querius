@@ -20,10 +20,11 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private List<String> ans_list,user_name,user_tagline;
     Context context;
+    User_Info info;
 
     private String ques,q_user,q_tag,q_top;
 
-    public RecyclerViewAdapter(String ques,String q_user,String q_tag,String q_top,List<String> ans_list, List<String> user_name, List<String> user_tagline, Context context) {
+    public RecyclerViewAdapter(String ques,String q_user,String q_tag,String q_top,List<String> ans_list, List<String> user_name, List<String> user_tagline, Context context,User_Info info) {
         this.ques=ques;
         this.q_user=q_user;
         this.q_tag=q_tag;
@@ -32,6 +33,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.user_name = user_name;
         this.user_tagline = user_tagline;
         this.context=context;
+        this.info=info;
     }
 
 
@@ -63,6 +65,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 bundle.putString("ANSWER",ans_list.get(position));
                 bundle.putString("A_USER",user_name.get(position));
                 bundle.putString("A_TAG",user_tagline.get(position));
+                bundle.putSerializable("Com_object",info);
                 intent.putExtra("ANSWER_INFO",bundle);
                 context.startActivity(intent);
             }

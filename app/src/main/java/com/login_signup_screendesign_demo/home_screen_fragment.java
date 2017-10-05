@@ -67,9 +67,11 @@ public class home_screen_fragment extends Fragment {
 
     CoordinatorLayout coordinatorLayout;
 
+    User_Info info;
 
     public home_screen_fragment() {
         // Required empty public constructor
+
     }
 
 
@@ -83,6 +85,7 @@ public class home_screen_fragment extends Fragment {
             bundle.putString("TAGLINE",tag);
             bundle.putString("QUESTION",qtxt);
             bundle.putString("TOPIC",t_name);
+            bundle.putSerializable("Com_object",info);
             fragmentB.setArguments(bundle);
             FragmentManager manager=getFragmentManager();
             FragmentTransaction transaction=manager.beginTransaction();
@@ -103,6 +106,12 @@ public class home_screen_fragment extends Fragment {
 
         relativeLayout = (RelativeLayout) v.findViewById(R.id.hs_rel);
         coordinatorLayout = (CoordinatorLayout) v.findViewById(R.id.co_layout);
+
+        info = (User_Info) getArguments().getSerializable("Com_object");
+        Log.d(TAG,"Info is :"+info);
+        if(info != null){
+            Log.d(TAG,"Inside info:"+info.getEmail_id());
+        }
 
 
 

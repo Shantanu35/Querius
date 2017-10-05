@@ -47,13 +47,75 @@ public class User_Info implements Serializable {
     @Expose
     private  String password;
 
+    public int getQues_asked() {
+        return ques_asked;
+    }
+
+    public void setQues_asked(int ques_asked) {
+        this.ques_asked = ques_asked;
+    }
+
+    public int getAns_given() {
+        return ans_given;
+    }
+
+    public void setAns_given(int ans_given) {
+        this.ans_given = ans_given;
+    }
+
+    public int getBook_marks() {
+        return book_marks;
+    }
+
+    public void setBook_marks(int book_marks) {
+        this.book_marks = book_marks;
+    }
+
+    public int getUpvote() {
+        return upvote;
+    }
+
+    public void setUpvote(int upvote) {
+        this.upvote = upvote;
+    }
+
+    public int getFollower() {
+        return follower;
+    }
+
+    public void setFollower(int follower) {
+        this.follower = follower;
+    }
+
     @SerializedName("location")
+
     @Expose
     private  String address;
 
     @SerializedName("tagline")
     @Expose
     private  String tagLine;
+
+    @SerializedName("Questions_asked")
+    @Expose
+    private int ques_asked;
+
+    @SerializedName("Answers_given")
+    @Expose
+    private int ans_given;
+
+    @SerializedName("bookmarks")
+    @Expose
+    private int book_marks;
+
+    @SerializedName("upvoted")
+    @Expose
+    private int upvote;
+
+    @SerializedName("followers")
+    @Expose
+    private int follower;
+
 
     public String getEmail_id() {
         return email_id;

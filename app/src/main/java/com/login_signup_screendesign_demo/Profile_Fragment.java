@@ -17,13 +17,19 @@ import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.FileProvider;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,20 +54,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static android.app.Activity.RESULT_OK;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Profile_Fragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Profile_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class Profile_Fragment extends Fragment {
+///**
+// * A simple {@link Fragment} subclass.
+// * Activities that contain this fragment must implement the
+// * {@link Profile_Fragment.OnFragmentInteractionListener} interface
+// * to handle interaction events.
+// * Use the {@link Profile_Fragment#newInstance} factory method to
+// * create an instance of this fragment.
+// */
+public class Profile_Fragment extends Fragment implements MenuItem.OnMenuItemClickListener  {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static TextView emailid,Name;
+    private static TextView tagline,Name,no1,no2,no3;
+
+    LinearLayout ques_tab;
 
     final String TAG = "Image";
 
@@ -70,6 +78,8 @@ public class Profile_Fragment extends Fragment {
     User_Info info;
 
     private  RoundedImageView imageView;
+
+    ImageView iview;
     CameraPhoto cameraPhoto;
 
     final int CAMERA_REQUEST = 1990;
@@ -124,14 +134,71 @@ public class Profile_Fragment extends Fragment {
         Intent i = getActivity().getIntent();
         info = (User_Info) i.getSerializableExtra("Com_object");
         if (info != null)
-            Log.d(TAG, "At the beginning" + info.getImageURL());
+            Log.d(TAG, "At the beginning" + info.getQues_asked());
 
-        emailid = (TextView) v.findViewById(R.id.email_id);
+        tagline = (TextView) v.findViewById(R.id.tag);
         Name = (TextView) v.findViewById(R.id.name);
         imageView = (RoundedImageView) v.findViewById(R.id.logo);
+        iview = (ImageView) v.findViewById(R.id.toggle);
+        no1 = (TextView) v.findViewById(R.id.no1);
+        no2 = (TextView) v.findViewById(R.id.no2);
+        no3 = (TextView) v.findViewById(R.id.no3);
+        ques_tab = (LinearLayout) v.findViewById(R.id.ques_tab);
 
-        emailid.setText(info.getEmail_id());
+        tagline.setText(info.getTagLine());
         Name.setText(info.getName());
+        no1.setText(""+info.getQues_asked());
+        no2.setText(""+info.getAns_given());
+        no3.setText(""+info.getFollower());
+
+
+        ques_tab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                QuestionProfile questionProfile = new QuestionProfile();
+                Bundle bundle = new Bundle();
+                bundle.putString("NAME",info.getName());
+                bundle.putString("TAGLINE",info.getTagLine());
+                bundle.putInt("USERID",info.getUser_id());
+                questionProfile.setArguments(bundle);
+                FragmentManager manager=getFragmentManager();
+                FragmentTransaction transaction=manager.beginTransaction();
+                transaction.replace(R.id.content,questionProfile).commit();
+
+            }
+        });
+
+
+        iview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu dropDownMenu = new PopupMenu(Profile_Fragment.this.getActivity(), iview);
+                dropDownMenu.getMenuInflater().inflate(R.menu.menu_drop_down, dropDownMenu.getMenu());
+                dropDownMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+
+                        switch (menuItem.getItemId()){
+                            case R.id.dropdown_menu1:
+                                onDestroy();
+
+                                FragmentManager fragmentManager = null;
+                                fragmentManager
+                                        .beginTransaction()
+                                        .replace(R.id.frameContainer, new Login_Fragment(),
+                                                Utils.Login_Fragment).commit();
+                                return true;
+                        }
+
+//                        Toast.makeText(Profile_Fragment.this.getActivity(), "You have clicked " + menuItem.getTitle(), Toast.LENGTH_LONG).show();
+                        return true;
+                    }
+                });
+                dropDownMenu.show();
+            }
+
+        });
 
 //        Bitmap bitmap=null;
 //        try {
@@ -141,24 +208,24 @@ public class Profile_Fragment extends Fragment {
 //        }
 //        imageView.setImageBitmap(bitmap);
 
-        if(info.getImageURL().equals("https://wwwqueriuscom.000webhostapp.com/index.jpg")){
-            Picasso.with(Profile_Fragment.this.getActivity()).load(info.getImageURL()).into(imageView);
-        }
-        else {
-//            final ProviderInfo info = getContext().getPackageManager()
-//                    .resolveContentProvider(authority, PackageManager.GET_META_DATA);
-//            final XmlResourceParser in = info.loadXmlMetaData( //560
-//                    getContext().getPackageManager(), META_DATA_FILE_PROVIDER_PATHS);
-//            Bitmap btmp = Bitmap.createBitmap(drawable.getBitmap());
-            Picasso.with(Profile_Fragment.this.getActivity()).load(info.getImageURL()).into(imageView);
-
-
-
-//            Uri uri = FileProvider.getUriForFile(getContext(), getContext().getApplicationContext().getPackageName() + ".fileprovider",file);
-//            Log.d(TAG, "" + uri);
-//            imageView.setImageURI(uri);
-//            imageView.setImageBitmap(BitmapFactory.decodeFile(info.getImageURL()));
-        }
+//        if(info.getImageURL().equals("https://wwwqueriuscom.000webhostapp.com/index.jpg")){
+//            Picasso.with(Profile_Fragment.this.getActivity()).load(info.getImageURL()).into(imageView);
+//        }
+//        else {
+////            final ProviderInfo info = getContext().getPackageManager()
+////                    .resolveContentProvider(authority, PackageManager.GET_META_DATA);
+////            final XmlResourceParser in = info.loadXmlMetaData( //560
+////                    getContext().getPackageManager(), META_DATA_FILE_PROVIDER_PATHS);
+////            Bitmap btmp = Bitmap.createBitmap(drawable.getBitmap());
+//            Picasso.with(Profile_Fragment.this.getActivity()).load(info.getImageURL()).into(imageView);
+//
+//
+//
+////            Uri uri = FileProvider.getUriForFile(getContext(), getContext().getApplicationContext().getPackageName() + ".fileprovider",file);
+////            Log.d(TAG, "" + uri);
+////            imageView.setImageURI(uri);
+////            imageView.setImageBitmap(BitmapFactory.decodeFile(info.getImageURL()));
+//        }
 //        imageView.setImageBitmap(BitmapFactory.decodeFile());
 
         cameraPhoto = new CameraPhoto(Profile_Fragment.this.getContext());
@@ -313,5 +380,8 @@ public class Profile_Fragment extends Fragment {
     }
 
 
-
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        return false;
+    }
 }

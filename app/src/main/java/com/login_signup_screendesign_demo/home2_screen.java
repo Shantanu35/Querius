@@ -38,6 +38,8 @@ public class home2_screen extends Fragment {
     final private String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
     final private String TAG = "Answer_Screen";
 
+    User_Info info;
+
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
@@ -58,7 +60,11 @@ public class home2_screen extends Fragment {
         q_name = getArguments().getString("NAME");
         q_tag = getArguments().getString("TAGLINE");
         q_topic = getArguments().getString("TOPIC");
+        info = (User_Info) getArguments().getSerializable("Com_object");
 
+        if(info!=null){
+            Log.d(TAG,"info inside home2 is :"+info.getEmail_id());
+        }
 
         question = (TextView) v.findViewById(R.id.ques);
         u_name = (TextView) v.findViewById(R.id.tv_name);
@@ -106,7 +112,7 @@ public class home2_screen extends Fragment {
                         i--;
                     }
 
-                    adapter = new RecyclerViewAdapter(ques_txt,q_name,q_tag,q_topic,ans_text, user_name, user_tag,home2_screen.this.getActivity());
+                    adapter = new RecyclerViewAdapter(ques_txt,q_name,q_tag,q_topic,ans_text, user_name, user_tag,home2_screen.this.getActivity(),info);
                     recyclerView.setAdapter(adapter);
 
 

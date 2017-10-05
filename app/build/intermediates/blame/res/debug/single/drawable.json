@@ -300,6 +300,10 @@
         "source": "/home/shantanu/.android/build-cache/f8210856ffedbc64d7d21c7a79179db0ae8c729f/output/res/drawable/common_google_signin_btn_icon_light.xml"
     },
     {
+        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable/ic_more_vert_black_24dp.xml",
+        "source": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/res/drawable/ic_more_vert_black_24dp.xml"
+    },
+    {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable/ic_bookmark_border_black_24dp.xml",
         "source": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/res/drawable/ic_bookmark_border_black_24dp.xml"
     },
@@ -366,6 +370,10 @@
     {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable/ic_add_a_photo_black_24dp.xml",
         "source": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/res/drawable/ic_add_a_photo_black_24dp.xml"
+    },
+    {
+        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable/ic_favorite_border_black_24dp.xml",
+        "source": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/res/drawable/ic_favorite_border_black_24dp.xml"
     },
     {
         "merged": "/Users/Sonu/Documents/AndroidWorkspace/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",

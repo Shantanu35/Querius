@@ -1,6 +1,7 @@
 package com.login_signup_screendesign_demo;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,7 @@ public class Home_Fragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
+    User_Info info;
 
 
     public Home_Fragment() {
@@ -49,13 +52,23 @@ public class Home_Fragment extends Fragment {
         tabLayout = (TabLayout) v.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
+        Intent i = getActivity().getIntent();
+        info = (User_Info) i.getSerializableExtra("Com_object");
+
+        Log.d("hello","Info is inside HOME FRAGMENT:"+info);
+
         return v;
     }
 
 
     private void setupViewPager(ViewPager viewPager) {
+        home_screen_fragment fragment = new home_screen_fragment();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Com_object",info);
+        fragment.setArguments(bundle);
+
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new home_screen_fragment(), "ONE");
+        adapter.addFragment(fragment, "ONE");
         adapter.addFragment(new Two(), "TWO");
         adapter.addFragment(new Three(), "THREE");
         viewPager.setAdapter(adapter);

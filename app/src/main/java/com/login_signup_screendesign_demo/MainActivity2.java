@@ -31,6 +31,7 @@ public class MainActivity2 extends AppCompatActivity{
                 case R.id.navigation_home:
 //                    mTextMessage.setText(R.string.title_home);
                     FragmentManager fragmentManager1 = getSupportFragmentManager();
+                    getIntent().putExtra("Com_object",userInfo);
                     fragmentManager1.beginTransaction().replace(R.id.content,new Home_Fragment()).commit();
 
                     return true;
@@ -63,6 +64,7 @@ public class MainActivity2 extends AppCompatActivity{
         setContentView(R.layout.activity_main2);
 
         FragmentManager fragmentManager2 = getSupportFragmentManager();
+        getIntent().putExtra("Com_object",userInfo);
         fragmentManager2.beginTransaction().replace(R.id.content,new Home_Fragment()).commit();
 
         Intent intent = getIntent();

@@ -9,5 +9,6 @@
     <color name="greyish">#3b464b</color>
     <color name="dark_greyish">#263238</color>
     <color name="dark_background">#0F5959</color>
+    <color name="Red">#FF0000</color>
 
 </resources>
