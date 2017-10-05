@@ -11,7 +11,7 @@
         android:layout_width="30sp"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_more_vert_black_24dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="335dp"
         android:tint="@color/cardview_shadow_end_color"
         android:id="@+id/toggle"

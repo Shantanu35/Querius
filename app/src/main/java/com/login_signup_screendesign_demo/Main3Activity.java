@@ -13,6 +13,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.graphics.Color.*;
 
@@ -25,6 +32,8 @@ public class Main3Activity extends AppCompatActivity {
     private TextView tv_ques,tv_q_user,tv_q_tag,tv_ans,tv_ans_tag,tv_ans_user,tv_top;
 
     ImageView upvote;
+
+    final private String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +50,8 @@ public class Main3Activity extends AppCompatActivity {
         ans_user = bundle.getString("A_USER");
         ans_tag = bundle.getString("A_TAG");
         info = (User_Info) bundle.getSerializable("Com_object");
-        if(info!=null){
-            Log.d("hello","inside main3:"+info.getEmail_id());
-        }
+            Log.d("hello","inside main3:"+info);
+
 
         tv_ques = (TextView) findViewById(R.id.ques);
         tv_q_user = (TextView) findViewById(R.id.tv_name);
@@ -69,7 +77,43 @@ public class Main3Activity extends AppCompatActivity {
 //                    DrawableCompat.setTint(upvote.getDrawable(), ContextCompat.getColor(getApplicationContext(),R.color.black));
 
 //                upvote.setColorFilter(getResources().getColor(R.color.dark_greyish));
+
+
                 DrawableCompat.setTint(upvote.getDrawable(), ContextCompat.getColor(getApplicationContext(),R.color.Red));
+
+
+                final Retrofit retrofit = new Retrofit.Builder().baseUrl(ROOT_URL).addConverterFactory(GsonConverterFactory.create()).build();
+                answer_upvoteAPI upvoteAPI = retrofit.create(answer_upvoteAPI.class);
+
+                Call<Integer> call = upvoteAPI.do_upvote(info.getUser_id(),ans_text);
+
+                call.enqueue(new Callback<Integer>() {
+                    @Override
+                    public void onResponse(Call<Integer> call, Response<Integer> response) {
+                        Log.d("hello","Inside on upvote response");
+                        int value=-1;
+                        value=response.body();
+                        if(value==1){
+
+                            Toast.makeText(getApplicationContext(),"Upvoted",Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(),"Not Upvoted",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Integer> call, Throwable t) {
+
+                        Toast.makeText(getApplicationContext(),"Check Your Network",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+
+
+
             }
         });
 

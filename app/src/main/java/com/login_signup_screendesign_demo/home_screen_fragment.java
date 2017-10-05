@@ -108,7 +108,7 @@ public class home_screen_fragment extends Fragment {
         coordinatorLayout = (CoordinatorLayout) v.findViewById(R.id.co_layout);
 
         info = (User_Info) getArguments().getSerializable("Com_object");
-        Log.d(TAG,"Info is :"+info);
+        Log.d("hello","Info is :"+info);
         if(info != null){
             Log.d(TAG,"Inside info:"+info.getEmail_id());
         }

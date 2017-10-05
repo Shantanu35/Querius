@@ -44,6 +44,8 @@ public class Home_Fragment extends Fragment {
 //        setSupportActionBar(toolbar);
 
 
+        info = (User_Info) getArguments().getSerializable("Com_object");
+        Log.d("hello","Info is inside HOME FRAGMENT:"+info);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) v.findViewById(R.id.viewpager);
@@ -56,9 +58,9 @@ public class Home_Fragment extends Fragment {
 //        info = (User_Info) i.getSerializableExtra("Com_object");
 
 
-        info = (User_Info) getArguments().getSerializable("Com_object");
 
-        Log.d("hello","Info is inside HOME FRAGMENT:"+info);
+
+
 
         return v;
     }

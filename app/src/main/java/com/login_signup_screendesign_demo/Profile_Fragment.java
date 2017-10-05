@@ -69,7 +69,7 @@ public class Profile_Fragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private static TextView tagline,Name,no1,no2,no3;
 
-    LinearLayout ques_tab;
+    LinearLayout ques_tab,ans_tab;
 
     final String TAG = "Image";
 
@@ -144,6 +144,7 @@ public class Profile_Fragment extends Fragment {
         no2 = (TextView) v.findViewById(R.id.no2);
         no3 = (TextView) v.findViewById(R.id.no3);
         ques_tab = (LinearLayout) v.findViewById(R.id.ques_tab);
+        ans_tab = (LinearLayout) v.findViewById(R.id.all_answers);
 
         tagline.setText(info.getTagLine());
         Name.setText(info.getName());
@@ -164,6 +165,14 @@ public class Profile_Fragment extends Fragment {
                 FragmentManager manager=getFragmentManager();
                 FragmentTransaction transaction=manager.beginTransaction();
                 transaction.replace(R.id.content,questionProfile).commit();
+
+            }
+        });
+
+
+        ans_tab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
         });

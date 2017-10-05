@@ -62,9 +62,9 @@ public class home2_screen extends Fragment {
         q_topic = getArguments().getString("TOPIC");
         info = (User_Info) getArguments().getSerializable("Com_object");
 
-        if(info!=null){
-            Log.d(TAG,"info inside home2 is :"+info.getEmail_id());
-        }
+
+            Log.d("hello","info inside home2 is :"+info);
+
 
         question = (TextView) v.findViewById(R.id.ques);
         u_name = (TextView) v.findViewById(R.id.tv_name);
