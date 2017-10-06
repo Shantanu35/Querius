@@ -1,6 +1,7 @@
 package com.login_signup_screendesign_demo;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -48,6 +50,8 @@ public class home2_screen extends Fragment {
     RecyclerView.Adapter adapter;
     RelativeLayout relativeLayout;
 
+    ImageView give_ans;
+
     public home2_screen() {
         // Required empty public constructor
     }
@@ -74,6 +78,7 @@ public class home2_screen extends Fragment {
         u_name = (TextView) v.findViewById(R.id.tv_name);
         tag = (TextView) v.findViewById(R.id.tv_qual);
         topic = (TextView) v.findViewById(R.id.ques_title);
+        give_ans= (ImageView) v.findViewById(R.id.ans_btn);
 
         question.setText(ques_txt);
         u_name.setText(q_name);
@@ -91,6 +96,23 @@ public class home2_screen extends Fragment {
         user_tag= new ArrayList<>();
         aid=new ArrayList<>();
 
+
+        give_ans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(getContext(),Main4Activity.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("QUESTION TEXT",ques_txt);
+                bundle1.putString("TOPIC NAME",q_topic);
+                bundle1.putString("Q_NAME",q_name);
+                bundle1.putString("Q_TAGLINE",q_tag);
+                bundle1.putSerializable("Com_object",info);
+                bundle1.putInt("QUESTION ID",qid);
+                intent1.putExtra("MAIN4",bundle1);
+                startActivity(intent1);
+
+            }
+        });
 
 
         getAnswers();
@@ -119,7 +141,7 @@ public class home2_screen extends Fragment {
                         i--;
                     }
 
-                    adapter = new RecyclerViewAdapter(aid,ques_txt,q_name,q_tag,q_topic,ans_text, user_name, user_tag,home2_screen.this.getActivity(),info);
+                    adapter = new RecyclerViewAdapter(qid,aid,ques_txt,q_name,q_tag,q_topic,ans_text, user_name, user_tag,home2_screen.this.getActivity(),info);
                     recyclerView.setAdapter(adapter);
 
 

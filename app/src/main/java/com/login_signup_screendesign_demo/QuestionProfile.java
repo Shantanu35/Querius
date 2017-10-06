@@ -137,7 +137,7 @@ public class QuestionProfile extends Fragment {
                         qid.add(list.get(i).getQid());
                         i--;
                     }
-                    adapter = new RecyclerAdapter(qid,ques_list, user_name, user_tagline, user_image,topic_name,getChildFragmentManager(),recyclerView,communication);
+                    adapter = new RecyclerAdapter(qid,ques_list, user_name, user_tagline, user_image,topic_name,getChildFragmentManager(),recyclerView,communication,getContext(),info);
                     recyclerView.setAdapter(adapter);
 
                 }

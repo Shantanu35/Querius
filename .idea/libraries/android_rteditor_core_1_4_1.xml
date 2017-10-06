@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="android-rteditor-core-1.4.1">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/a3dc254d0b6aa15e6999441ca00ded71b0cc42c1/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/a3dc254d0b6aa15e6999441ca00ded71b0cc42c1/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.1gravity/android-rteditor-core/1.4.1/f2d0c77831196bd046794e4bbfa6c3c11da4e43a/android-rteditor-core-1.4.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

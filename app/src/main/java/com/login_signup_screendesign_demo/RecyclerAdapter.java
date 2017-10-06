@@ -48,12 +48,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     FragmentCommunication communication;
 
+    Context context;
+
+    User_Info info;
+
 
 //    final private String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
 //    final private String TAG = "Adapter";
 
 
-    public RecyclerAdapter(List<Integer> ques_id,List<String> ques_list, List<String> user_name, List<String> user_tagline, List<String> user_image, List<String> topic_name, FragmentManager manager,RecyclerView recyclerView,FragmentCommunication communication) {
+    public RecyclerAdapter(List<Integer> ques_id,List<String> ques_list, List<String> user_name, List<String> user_tagline, List<String> user_image, List<String> topic_name, FragmentManager manager,RecyclerView recyclerView,FragmentCommunication communication,Context context,User_Info info) {
         this.ques_list = ques_list;
         this.user_name = user_name;
         this.user_tagline = user_tagline;
@@ -63,6 +67,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         this.ques_id=ques_id;
         this.recyclerView=recyclerView;
         this.communication=communication;
+        this.context=context;
+        this.info=info;
     }
 
     @Override
@@ -112,6 +118,25 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
             }
         });
+
+        holder.give_ans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(context,Main4Activity.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("QUESTION TEXT",ques_list.get(position));
+                bundle1.putString("TOPIC NAME",topic_name.get(position));
+                bundle1.putString("Q_NAME",user_name.get(position));
+                bundle1.putString("Q_TAGLINE",user_tagline.get(position));
+                bundle1.putSerializable("Com_object",info);
+                bundle1.putInt("QUESTION ID",ques_id.get(position));
+                intent1.putExtra("MAIN4",bundle1);
+                context.startActivity(intent1);
+
+            }
+        });
+
+
     }
 
     @Override
@@ -123,7 +148,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
 
         TextView tv_ques,tv_name,tv_qual,tv_top;
-        ImageView iview;
+        ImageView iview,give_ans;
         RoundedImageView imageView;
         RelativeLayout relativeLayout;
         FragmentCommunication mCommunication;
@@ -136,6 +161,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             imageView = (RoundedImageView) itemView.findViewById(R.id.logo_in_homescreen);
             tv_top = (TextView) itemView.findViewById(R.id.ques_title);
             iview = (ImageView) itemView.findViewById(R.id.btn_answers);
+            give_ans = (ImageView) itemView.findViewById(R.id.ans_btn);
             relativeLayout = (RelativeLayout) itemView.findViewById(R.id.rel_main);
             mCommunication = communication;
 

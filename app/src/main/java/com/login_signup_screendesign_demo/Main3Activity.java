@@ -27,12 +27,12 @@ public class Main3Activity extends AppCompatActivity {
 
     private String ques,q_user,q_tag,q_top;
     private String ans_text,ans_user,ans_tag;
-    private int aid;
+    private int aid,qid;
 
     User_Info info;
     private TextView tv_ques,tv_q_user,tv_q_tag,tv_ans,tv_ans_tag,tv_ans_user,tv_top;
 
-    ImageView upvote;
+    ImageView upvote,give_ans;
 
     final private String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
 
@@ -41,8 +41,8 @@ public class Main3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra("ANSWER_INFO");
+        final Intent intent = getIntent();
+        final Bundle bundle = intent.getBundleExtra("ANSWER_INFO");
         ques = bundle.getString("QUESTION");
         q_user = bundle.getString("Q_NAME");
         q_tag = bundle.getString("Q_TAG");
@@ -52,6 +52,7 @@ public class Main3Activity extends AppCompatActivity {
         ans_tag = bundle.getString("A_TAG");
         info = (User_Info) bundle.getSerializable("Com_object");
         aid=bundle.getInt("ANSWER ID");
+        qid=bundle.getInt("QUESTION ID");
             Log.d("hello","inside main3:"+info);
 
 
@@ -63,6 +64,7 @@ public class Main3Activity extends AppCompatActivity {
         tv_ans_tag = (TextView) findViewById(R.id.tv_qual1);
         tv_top = (TextView) findViewById(R.id.ques_title);
         upvote = (ImageView) findViewById(R.id.upvote);
+        give_ans = (ImageView) findViewById(R.id.ans_btn);
 
 
         tv_ques.setText(ques);
@@ -110,14 +112,28 @@ public class Main3Activity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Check Your Network",Toast.LENGTH_SHORT).show();
                     }
                 });
-
-
-
-
-
-
             }
         });
+
+
+        give_ans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(getApplicationContext(),Main4Activity.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("QUESTION TEXT",ques);
+                bundle1.putString("TOPIC NAME",q_top);
+                bundle1.putString("Q_NAME",q_user);
+                bundle1.putString("Q_TAGLINE",q_tag);
+                bundle1.putSerializable("Com_object",info);
+                bundle1.putInt("QUESTION ID",qid);
+                intent1.putExtra("MAIN4",bundle1);
+                startActivity(intent1);
+            }
+        });
+
+
+
 
 
     }

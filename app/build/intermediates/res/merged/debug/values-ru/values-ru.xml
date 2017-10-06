@@ -19,6 +19,8 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Открыть доступ"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Открыть доступ пользователю %s"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Свернуть"</string>
+    <string name="color_picker_exact">Значение ARGB</string>
+    <string name="color_picker_wheel">Колесо цвета в HSV</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Включить"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"Для работы приложения \"<ns1:g id="APP_NAME">%1$s</ns1:g>\" требуется включить сервисы Google Play."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Включите сервисы Google Play"</string>
@@ -36,6 +38,29 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Открыть на телефоне"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Войти"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Войти через аккаунт Google"</string>
+    <string name="rte_add_image_error">Недостоточно памяти для добавления этого изображения</string>
+    <string name="rte_create_a_link">Создать ссылку</string>
+    <string name="rte_invalid_link">%s неверный адрес</string>
+    <string name="rte_link_enter_url">URL (обязательно)</string>
+    <string name="rte_link_enter_url_text">Текст ссылки (не обязательно)</string>
+    <string name="rte_pick_audio">Выбрать аудио</string>
+    <string name="rte_pick_image">Выбрать изображение</string>
+    <string name="rte_pick_video">Выбрать видео</string>
+    <string name="rte_processing">Обработка.\nПожалуйста, подождите…</string>
+    <string name="rte_processing_image">Обработка изображения…</string>
+    <string name="rte_remove_action">Удалить</string>
+    <string name="rte_toolbar_color_custom">Пользовательский</string>
+    <string name="rte_toolbar_color_text">Abc</string>
+    <string name="rte_toolbar_fontsize_10">10 px Abc</string>
+    <string name="rte_toolbar_fontsize_12">12 px Abc</string>
+    <string name="rte_toolbar_fontsize_14">14 px Abc</string>
+    <string name="rte_toolbar_fontsize_16">16 px Abc</string>
+    <string name="rte_toolbar_fontsize_18">18 px Abc</string>
+    <string name="rte_toolbar_fontsize_20">20 px Abc</string>
+    <string name="rte_toolbar_fontsize_24">24 px Abc</string>
+    <string name="rte_toolbar_fontsize_28">28 px Abc</string>
+    <string name="rte_toolbar_fontsize_32">32 px Abc</string>
+    <string name="rte_toolbar_fontsize_36">36 px Abc</string>
     <string msgid="146198913615257606" name="search_menu_title">"Поиск"</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">">999"</string>
 </resources>

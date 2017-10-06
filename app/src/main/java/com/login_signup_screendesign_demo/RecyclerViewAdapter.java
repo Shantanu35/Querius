@@ -20,12 +20,13 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private List<String> ans_list,user_name,user_tagline;
     private List<Integer>ans_id;
+    Integer qid;
     Context context;
     User_Info info;
 
     private String ques,q_user,q_tag,q_top;
 
-    public RecyclerViewAdapter(List<Integer> ans_id,String ques,String q_user,String q_tag,String q_top,List<String> ans_list, List<String> user_name, List<String> user_tagline, Context context,User_Info info) {
+    public RecyclerViewAdapter(Integer qid,List<Integer> ans_id,String ques,String q_user,String q_tag,String q_top,List<String> ans_list, List<String> user_name, List<String> user_tagline, Context context,User_Info info) {
         this.ques=ques;
         this.q_user=q_user;
         this.q_tag=q_tag;
@@ -36,6 +37,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.ans_id=ans_id;
         this.context=context;
         this.info=info;
+        this.qid=qid;
     }
 
 
@@ -69,6 +71,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 bundle.putString("A_TAG",user_tagline.get(position));
                 bundle.putSerializable("Com_object",info);
                 bundle.putInt("ANSWER ID",ans_id.get(position));
+                bundle.putInt("QUESTION ID",qid);
                 intent.putExtra("ANSWER_INFO",bundle);
                 context.startActivity(intent);
             }

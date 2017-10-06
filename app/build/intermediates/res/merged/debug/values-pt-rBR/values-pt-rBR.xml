@@ -19,6 +19,8 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Compartilhar com"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Compartilhar com %s"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Recolher"</string>
+    <string name="color_picker_exact">Valor ARGB</string>
+    <string name="color_picker_wheel">HSV Roda de Cores</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Ativar"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> só funciona com o Google Play Services ativado."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Ativar o Google Play Services"</string>
@@ -36,6 +38,29 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Abrir no smartphone"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Fazer login"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Fazer login com o Google"</string>
+    <string name="rte_add_image_error">Não existe espaço suficiente para adicionar esta imagem.</string>
+    <string name="rte_create_a_link">Criar um Link</string>
+    <string name="rte_invalid_link"><ns1:g id="link">%s</ns1:g> não é um endereço válido</string>
+    <string name="rte_link_enter_url">URL (exigido)</string>
+    <string name="rte_link_enter_url_text">Link do Texto (opcional)</string>
+    <string name="rte_pick_audio">Selecionar um arquivo de áudio</string>
+    <string name="rte_pick_image">Selecionar uma imagem</string>
+    <string name="rte_pick_video">Selecionar um vídeo</string>
+    <string name="rte_processing">Processando.\nPor favor, seja paciente\u2026</string>
+    <string name="rte_processing_image">Processando imagem\u2026</string>
+    <string name="rte_remove_action">Remover</string>
+    <string name="rte_toolbar_color_custom">Personalizado</string>
+    <string name="rte_toolbar_color_text">Abc</string>
+    <string name="rte_toolbar_fontsize_10">10 px Abc</string>
+    <string name="rte_toolbar_fontsize_12">12 px Abc</string>
+    <string name="rte_toolbar_fontsize_14">14 px Abc</string>
+    <string name="rte_toolbar_fontsize_16">16 px Abc</string>
+    <string name="rte_toolbar_fontsize_18">18 px Abc</string>
+    <string name="rte_toolbar_fontsize_20">20 px Abc</string>
+    <string name="rte_toolbar_fontsize_24">24 px Abc</string>
+    <string name="rte_toolbar_fontsize_28">28 px Abc</string>
+    <string name="rte_toolbar_fontsize_32">32 px Abc</string>
+    <string name="rte_toolbar_fontsize_36">36 px Abc</string>
     <string msgid="146198913615257606" name="search_menu_title">"Pesquisar"</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

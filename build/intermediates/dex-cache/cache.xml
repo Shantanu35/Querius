@@ -259,7 +259,7 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="30393d892cf899c3d5ed7c9ae11bbd74bfcb5948">
+        sha1="d11e73edf2d9244cad177601cdd213115b6a90a1">
         <dex dex="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_df3d1bce91d88b95400999ad565006d8514d85eb/classes.dex" />
     </item>
     <item

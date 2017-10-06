@@ -36,6 +36,28 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"باز کردن در تلفن"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"ورود به سیستم"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"‏ورود به سیستم با Google‎"</string>
+    <string name="rte_create_a_link">ایجاد پیوند</string>
+    <string name="rte_invalid_link"><ns1:g id="link">%s</ns1:g> یک آدرس معتبر نیست</string>
+    <string name="rte_link_enter_url">آدرس (مورد نیاز)</string>
+    <string name="rte_link_enter_url_text">لینک متنی (اختیاری)</string>
+    <string name="rte_pick_audio">فایل صوتی را انتخاب کنید</string>
+    <string name="rte_pick_image">تصویر را انتخاب کنید</string>
+    <string name="rte_pick_video">یک ویدیو را انتخاب کنید</string>
+    <string name="rte_processing">در حال پردازش.\nلطفا صبور باشید\u2026</string>
+    <string name="rte_processing_image">پرد ازش تصویر\u2026</string>
+    <string name="rte_remove_action">پاک کردن</string>
+    <string name="rte_toolbar_color_custom">سفارشی</string>
+    <string name="rte_toolbar_color_text">Abc</string>
+    <string name="rte_toolbar_fontsize_10">10 پیکسل Abc</string>
+    <string name="rte_toolbar_fontsize_12">12 پیکسل Abc</string>
+    <string name="rte_toolbar_fontsize_14">14 پیکسل Abc</string>
+    <string name="rte_toolbar_fontsize_16">16 پیکسل ABC</string>
+    <string name="rte_toolbar_fontsize_18">18 پیکسل Abc</string>
+    <string name="rte_toolbar_fontsize_20">20 پیکسل Abc</string>
+    <string name="rte_toolbar_fontsize_24">24 پیکسل Abc</string>
+    <string name="rte_toolbar_fontsize_28">28 پیکسل Abc</string>
+    <string name="rte_toolbar_fontsize_32">32 پیکسل Abc</string>
+    <string name="rte_toolbar_fontsize_36">36 پیکسل Abc</string>
     <string msgid="146198913615257606" name="search_menu_title">"جستجو"</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"۹۹۹+"</string>
 </resources>

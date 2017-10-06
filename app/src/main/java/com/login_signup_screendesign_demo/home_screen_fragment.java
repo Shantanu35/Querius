@@ -165,7 +165,7 @@ public class home_screen_fragment extends Fragment {
                         qid.add(list.get(i).getQues_id());
                         i--;
                     }
-                    adapter = new RecyclerAdapter(qid,ques_list, user_name, user_tagline, user_image,topic_name,getChildFragmentManager(),recyclerView,communication);
+                    adapter = new RecyclerAdapter(qid,ques_list, user_name, user_tagline, user_image,topic_name,getChildFragmentManager(),recyclerView,communication,getContext(),info);
                     recyclerView.setAdapter(adapter);
 
                 }

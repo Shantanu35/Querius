@@ -19,6 +19,8 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Freigeben für"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Freigeben für %s"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Minimieren"</string>
+    <string name="color_picker_exact">ARGB Wert</string>
+    <string name="color_picker_wheel">HSV Farbrad</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Aktivieren"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> funktioniert erst nach der Aktivierung der Google Play-Dienste."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play-Dienste aktivieren"</string>
@@ -36,6 +38,29 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Auf Smartphone öffnen"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Anmelden"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Über Google anmelden"</string>
+    <string name="rte_add_image_error">Das Bild konnte nicht hinzugefügt werden (Speichermangel).</string>
+    <string name="rte_create_a_link">Link erstellen</string>
+    <string name="rte_invalid_link"><ns1:g id="link">%s</ns1:g> ist keine gültige Adresse</string>
+    <string name="rte_link_enter_url">URL (obligatorisch)</string>
+    <string name="rte_link_enter_url_text">Link-Text (optional)</string>
+    <string name="rte_pick_audio">Audiodatei auswählen</string>
+    <string name="rte_pick_image">Bild auswählen</string>
+    <string name="rte_pick_video">Video auswählen</string>
+    <string name="rte_processing">Verarbeitung im Gange.\nBitte haben Sie Geduld\u2026</string>
+    <string name="rte_processing_image">Bild verarbeiten\u2026</string>
+    <string name="rte_remove_action">Entfernen</string>
+    <string name="rte_toolbar_color_custom">Maßgeschneidert</string>
+    <string name="rte_toolbar_color_text">Abc</string>
+    <string name="rte_toolbar_fontsize_10">10 px Abc</string>
+    <string name="rte_toolbar_fontsize_12">12 px Abc</string>
+    <string name="rte_toolbar_fontsize_14">14 px Abc</string>
+    <string name="rte_toolbar_fontsize_16">16 px Abc</string>
+    <string name="rte_toolbar_fontsize_18">18 px Abc</string>
+    <string name="rte_toolbar_fontsize_20">20 px Abc</string>
+    <string name="rte_toolbar_fontsize_24">24 px Abc</string>
+    <string name="rte_toolbar_fontsize_28">28 px Abc</string>
+    <string name="rte_toolbar_fontsize_32">32 px Abc</string>
+    <string name="rte_toolbar_fontsize_36">36 px Abc</string>
     <string msgid="146198913615257606" name="search_menu_title">"Suchen"</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

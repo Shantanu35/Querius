@@ -691,8 +691,65 @@
                     "startLine": 38,
                     "startColumn": 4,
                     "startOffset": 4095,
+                    "endColumn": 50,
+                    "endOffset": 4141
+                },
+                "from": {
+                    "file": "/home/shantanu/.android/build-cache/a3dc254d0b6aa15e6999441ca00ded71b0cc42c1/output/res/values-zh-rCN/values-zh-rCN.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 50,
+                        "endOffset": 101
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 39,
+                    "startColumn": 4,
+                    "startOffset": 4146,
+                    "endColumn": 61,
+                    "endOffset": 4203
+                },
+                "from": {
+                    "file": "/home/shantanu/.android/build-cache/a3dc254d0b6aa15e6999441ca00ded71b0cc42c1/output/res/values-zh-rCN/values-zh-rCN.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 106,
+                        "endColumn": 61,
+                        "endOffset": 163
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 40,
+                    "startColumn": 4,
+                    "startOffset": 4208,
+                    "endColumn": 48,
+                    "endOffset": 4252
+                },
+                "from": {
+                    "file": "/home/shantanu/.android/build-cache/a3dc254d0b6aa15e6999441ca00ded71b0cc42c1/output/res/values-zh-rCN/values-zh-rCN.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 168,
+                        "endColumn": 48,
+                        "endOffset": 212
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 41,
+                    "startColumn": 4,
+                    "startOffset": 4257,
                     "endColumn": 77,
-                    "endOffset": 4168
+                    "endOffset": 4330
                 },
                 "from": {
                     "file": "/home/shantanu/.android/build-cache/b09bec42117fa05b17e1e1a6f76f59297c27667f/output/res/values-zh-rCN/values-zh-rCN.xml",
@@ -707,11 +764,11 @@
             },
             {
                 "to": {
-                    "startLine": 39,
+                    "startLine": 42,
                     "startColumn": 4,
-                    "startOffset": 4173,
+                    "startOffset": 4335,
                     "endColumn": 100,
-                    "endOffset": 4269
+                    "endOffset": 4431
                 },
                 "from": {
                     "file": "/home/shantanu/.android/build-cache/b09bec42117fa05b17e1e1a6f76f59297c27667f/output/res/values-zh-rCN/values-zh-rCN.xml",
