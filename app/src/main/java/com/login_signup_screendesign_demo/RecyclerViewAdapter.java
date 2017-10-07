@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,14 +21,14 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private List<String> ans_list,user_name,user_tagline;
-    private List<Integer>ans_id;
-    Integer qid;
-    Context context;
+    private List<Integer>ans_id,ans_uid;
+    private Integer qid,q_uid;
+    private Context context;
     User_Info info;
 
     private String ques,q_user,q_tag,q_top;
 
-    public RecyclerViewAdapter(Integer qid,List<Integer> ans_id,String ques,String q_user,String q_tag,String q_top,List<String> ans_list, List<String> user_name, List<String> user_tagline, Context context,User_Info info) {
+    public RecyclerViewAdapter(Integer q_uid,Integer qid,List<Integer> ans_id,List<Integer> ans_uid,String ques,String q_user,String q_tag,String q_top,List<String> ans_list, List<String> user_name, List<String> user_tagline, Context context,User_Info info) {
         this.ques=ques;
         this.q_user=q_user;
         this.q_tag=q_tag;
@@ -35,9 +37,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.user_name = user_name;
         this.user_tagline = user_tagline;
         this.ans_id=ans_id;
+        this.ans_uid=ans_uid;
         this.context=context;
         this.info=info;
         this.qid=qid;
+        this.q_uid=q_uid;
     }
 
 
@@ -71,11 +75,26 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 bundle.putString("A_TAG",user_tagline.get(position));
                 bundle.putSerializable("Com_object",info);
                 bundle.putInt("ANSWER ID",ans_id.get(position));
+                bundle.putInt("AUSER ID",ans_uid.get(position));
                 bundle.putInt("QUESTION ID",qid);
+                bundle.putInt("QUSER ID",q_uid);
                 intent.putExtra("ANSWER_INFO",bundle);
                 context.startActivity(intent);
             }
         });
+
+
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("Other User","Inside RecyclerViewAdpater");
+                Intent intent = new Intent(context,Other_user.class);
+                intent.putExtra("QUSER ID",ans_uid.get(position));
+                intent.putExtra("CURR_UID",info.getUser_id());
+                context.startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -91,6 +110,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView tv_ans,tv_name,tv_qual;
         ImageView iview;
         RoundedImageView imageView;
+        LinearLayout linearLayout;
         FragmentCommunication mCommunication;
         public ViewHolder(View itemView) {
             super(itemView);
@@ -100,6 +120,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             tv_qual = (TextView) itemView.findViewById(R.id.tv_qual);
             imageView = (RoundedImageView) itemView.findViewById(R.id.logo_in_answer);
             iview = (ImageView) itemView.findViewById(R.id.btn_show_ans);
+            linearLayout = (LinearLayout) itemView.findViewById(R.id.user);
 
         }
     }

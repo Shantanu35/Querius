@@ -134,7 +134,7 @@ public class Profile_Fragment extends Fragment {
         Intent i = getActivity().getIntent();
         info = (User_Info) i.getSerializableExtra("Com_object");
         if (info != null)
-            Log.d(TAG, "At the beginning" + info.getQues_asked());
+            Log.d("sab", "inside profile" + info.getQues_asked());
 
         tagline = (TextView) v.findViewById(R.id.tag);
         Name = (TextView) v.findViewById(R.id.name);

@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -40,7 +41,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     private List<String> user_image;
 
-    private List<Integer>ques_id;
+    private List<Integer>ques_id,user_id;
     private FragmentManager manager;
 
 
@@ -50,6 +51,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     Context context;
 
+
+
     User_Info info;
 
 
@@ -57,7 +60,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 //    final private String TAG = "Adapter";
 
 
-    public RecyclerAdapter(List<Integer> ques_id,List<String> ques_list, List<String> user_name, List<String> user_tagline, List<String> user_image, List<String> topic_name, FragmentManager manager,RecyclerView recyclerView,FragmentCommunication communication,Context context,User_Info info) {
+    public RecyclerAdapter(List<Integer> user_id,List<Integer> ques_id,List<String> ques_list, List<String> user_name, List<String> user_tagline, List<String> user_image, List<String> topic_name, FragmentManager manager,RecyclerView recyclerView,FragmentCommunication communication,Context context,User_Info info) {
         this.ques_list = ques_list;
         this.user_name = user_name;
         this.user_tagline = user_tagline;
@@ -65,6 +68,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         this.topic_name = topic_name;
         this.manager = manager;
         this.ques_id=ques_id;
+        this.user_id=user_id;
         this.recyclerView=recyclerView;
         this.communication=communication;
         this.context=context;
@@ -111,9 +115,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 bundle.putString("QUESTION",ques_list.get(position));
                 bundle.putString("TOPIC",topic_name.get(position));
                 bundle.putInt("QUESTION ID",ques_id.get(position));
+                bundle.putInt("USER ID",user_id.get(position));
                 fragment.setArguments(bundle);
 
-                holder.mCommunication.respond(ques_id.get(position),user_name.get(position),user_tagline.get(position),ques_list.get(position),topic_name.get(position));
+                holder.mCommunication.respond(user_id.get(position),ques_id.get(position),user_name.get(position),user_tagline.get(position),ques_list.get(position),topic_name.get(position));
 
 
             }
@@ -130,9 +135,22 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 bundle1.putString("Q_TAGLINE",user_tagline.get(position));
                 bundle1.putSerializable("Com_object",info);
                 bundle1.putInt("QUESTION ID",ques_id.get(position));
+                bundle1.putInt("USER ID",user_id.get(position));
                 intent1.putExtra("MAIN4",bundle1);
                 context.startActivity(intent1);
 
+            }
+        });
+
+
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("Other User","Inside RecyclerAdpater");
+                Intent intent = new Intent(context,Other_user.class);
+                intent.putExtra("QUSER ID",user_id.get(position));
+                intent.putExtra("CURR_UID",info.getUser_id());
+                context.startActivity(intent);
             }
         });
 
@@ -152,6 +170,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         RoundedImageView imageView;
         RelativeLayout relativeLayout;
         FragmentCommunication mCommunication;
+        LinearLayout linearLayout;
         public ViewHolder(View itemView) {
             super(itemView);
 
@@ -164,6 +183,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             give_ans = (ImageView) itemView.findViewById(R.id.ans_btn);
             relativeLayout = (RelativeLayout) itemView.findViewById(R.id.rel_main);
             mCommunication = communication;
+            linearLayout = (LinearLayout) itemView.findViewById(R.id.user);
 
 
 

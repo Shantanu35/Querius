@@ -11,9 +11,10 @@ public class Answer_model {
     @SerializedName("answerid")
     private int ans_id;
 
-    public int getAns_id() {
-        return ans_id;
-    }
+
+    @SerializedName("userid")
+    private int u_id;
+
 
     @SerializedName("atext")
     private String ans_text;
@@ -23,6 +24,15 @@ public class Answer_model {
 
     @SerializedName("tagline")
     private String u_tag;
+
+
+    public int getU_id() {
+        return u_id;
+    }
+
+    public int getAns_id() {
+        return ans_id;
+    }
 
 
     public String getU_tag() {

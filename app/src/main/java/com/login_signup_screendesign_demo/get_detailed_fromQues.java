@@ -12,6 +12,10 @@ public class get_detailed_fromQues {
     private int ques_id;
 
 
+    @SerializedName("userid")
+    private int user_id;
+
+
     @SerializedName("qtext")
     private String ques_text;
 
@@ -24,6 +28,10 @@ public class get_detailed_fromQues {
     @SerializedName("name")
     private String topic_name;
 
+
+    public int getUser_id() {
+        return user_id;
+    }
 
     public String getQues_text() {
         return ques_text;

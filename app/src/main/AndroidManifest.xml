@@ -57,11 +57,11 @@
         </activity>
         <activity android:name=".Main3Activity" />
         <activity android:name=".Answer_Activity" />
-        <activity
-            android:name="com.onegravity.rteditor.media.choose.MediaChooserActivity"/>
-        <activity
-            android:name="com.onegravity.rteditor.media.crop.CropImageActivity"/>
-        <activity android:name=".Main4Activity"></activity>/
+        <activity android:name="com.onegravity.rteditor.media.choose.MediaChooserActivity" />
+        <activity android:name="com.onegravity.rteditor.media.crop.CropImageActivity" />
+        <activity android:name=".Main4Activity" />
+        /
+        <activity android:name=".Other_user"></activity>
     </application>
 
 </manifest>

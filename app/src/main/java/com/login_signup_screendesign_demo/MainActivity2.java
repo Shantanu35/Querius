@@ -2,9 +2,11 @@ package com.login_signup_screendesign_demo;
 
 import android.app.Fragment;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
@@ -17,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import java.io.Serializable;
+
 public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuItemClickListener{
 
 //    private TextView mTextMessage;
@@ -25,6 +29,7 @@ public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuI
     MenuItem menuItem;
 
     ImageView iview;
+    Context context;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -75,6 +80,8 @@ public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuI
 
         Intent intent = getIntent();
         userInfo = (User_Info) intent.getExtras().getSerializable("Object");
+        Log.d("sab","inside M2"+userInfo.getName());
+//        context = (Context) intent.getExtras().getSerializable("Context");
 
 
 
@@ -101,13 +108,12 @@ public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuI
 
                         switch (menuItem.getItemId()){
                             case R.id.dropdown_menu1:
+//                                SaveSharedPreference.setUserName(getApplicationContext(),"");
+                                SaveSharedPreference.clearUserName(getApplicationContext());
+                                Intent intent1 = new Intent(MainActivity2.this,MainActivity.class);
+//                                Login_Fragment fragment = new Login_Fragment();
                                 onDestroy();
-
-                                FragmentManager fragmentManager = null;
-                                fragmentManager
-                                        .beginTransaction()
-                                        .replace(R.id.frameContainer, new Login_Fragment(),
-                                                Utils.Login_Fragment).commit();
+                                startActivity(intent1);
                                 return true;
                         }
 
@@ -132,8 +138,19 @@ public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuI
         return false;
     }
 
+    @Override
+    public void onBackPressed() {
 
-//    @Override
+
+
+        Intent menuIntent = new Intent();
+        menuIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        finish();
+//        super.onBackPressed();
+    }
+
+
+    //    @Override
 //    public void doSomething(User_Info info) {
 //        userInfo = info;
 //        if(userInfo != null) {
@@ -141,4 +158,24 @@ public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuI
 //        }
 //
 //    }
+
+
 }
+
+
+//
+//class myHelper{
+//
+//    Context context;
+//    public myHelper(Context context) {
+//        this.context=context;
+//    }
+//
+//    public Context get_con(){
+//        return context;
+//    }
+//
+//    public void setContext(Context context) {
+//        this.context = context;
+//    }
+//}

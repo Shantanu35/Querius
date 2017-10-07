@@ -201,17 +201,21 @@ ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/L
 	android:name
 		ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:59:19-50
 activity#com.onegravity.rteditor.media.choose.MediaChooserActivity
-ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:60:9-61:87
+ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:60:9-94
 	android:name
-		ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:61:13-85
+		ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:60:19-91
 activity#com.onegravity.rteditor.media.crop.CropImageActivity
-ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:62:9-63:82
+ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:61:9-89
 	android:name
-		ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:63:13-80
+		ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:61:19-86
 activity#com.login_signup_screendesign_demo.Main4Activity
-ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:64:9-60
+ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:62:9-51
 	android:name
-		ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:64:19-48
+		ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:62:19-48
+activity#com.login_signup_screendesign_demo.Other_user
+ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:64:9-57
+	android:name
+		ADDED from /home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/AndroidManifest.xml:64:19-45
 activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
 ADDED from [com.google.android.gms:play-services-auth:9.8.0] /home/shantanu/.android/build-cache/62339b0bb1431844d6a6ebcef88dd72b9ce5aceb/output/AndroidManifest.xml:20:9-189
 	android:excludeFromRecents

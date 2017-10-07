@@ -88,7 +88,6 @@ public class User_Info implements Serializable {
     }
 
     @SerializedName("location")
-
     @Expose
     private  String address;
 

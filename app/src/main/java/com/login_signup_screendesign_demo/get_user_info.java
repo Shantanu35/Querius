@@ -17,5 +17,5 @@ public interface get_user_info {
 
     @FormUrlEncoded
     @POST("db_get_user_info.php")
-    public Call<List<getUser_Info>> u_info(@Field("userid") int User_id);
+    public Call<List<User_Info>> u_info(@Field("userid") int User_id);
 }

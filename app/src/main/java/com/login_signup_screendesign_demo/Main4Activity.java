@@ -17,7 +17,7 @@ public class Main4Activity extends AppCompatActivity {
 
     TextView ques_txt,q_user,q_tag,q_top;
     String q_txt,q_name,q_tagline,q_topic;
-    int qid;
+    int qid,quid;
     private RTManager rtManager;
     private RTEditText rtEditText;
 
@@ -40,6 +40,7 @@ public class Main4Activity extends AppCompatActivity {
         q_name = bundle.getString("Q_NAME");
         q_tagline=bundle.getString("Q_TAGLINE");
         qid=bundle.getInt("QUESTION ID");
+        quid=bundle.getInt("QUSER ID");
         q_topic=bundle.getString("TOPIC NAME");
 
         ques_txt.setText(q_txt);

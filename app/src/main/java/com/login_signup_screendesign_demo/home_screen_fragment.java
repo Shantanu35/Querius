@@ -53,7 +53,7 @@ public class home_screen_fragment extends Fragment {
 
     private List<String> user_image;
 
-    private List<Integer>qid;
+    private List<Integer>qid,uid;
 
 
 
@@ -66,6 +66,7 @@ public class home_screen_fragment extends Fragment {
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
     RelativeLayout relativeLayout;
+
 
     CoordinatorLayout coordinatorLayout;
 
@@ -80,7 +81,7 @@ public class home_screen_fragment extends Fragment {
 
     FragmentCommunication communication = new FragmentCommunication() {
         @Override
-        public void respond(int qid,String name, String tag, String qtxt,String t_name) {
+        public void respond(int uid,int qid,String name, String tag, String qtxt,String t_name) {
             home2_screen fragmentB=new home2_screen();
             Bundle bundle=new Bundle();
             bundle.putString("NAME",name);
@@ -88,6 +89,7 @@ public class home_screen_fragment extends Fragment {
             bundle.putString("QUESTION",qtxt);
             bundle.putString("TOPIC",t_name);
             bundle.putInt("QUESTION ID",qid);
+            bundle.putInt("USER ID",uid);
             bundle.putSerializable("Com_object",info);
             fragmentB.setArguments(bundle);
             FragmentManager manager=getFragmentManager();
@@ -118,12 +120,15 @@ public class home_screen_fragment extends Fragment {
 
 
 
+
+
         ques_list= new ArrayList<>();
         user_name= new ArrayList<>();
         user_image= new ArrayList<>();
         user_tagline= new ArrayList<>();
         topic_name = new ArrayList<>();
         qid=new ArrayList<>();
+        uid=new ArrayList<>();
 
 
 
@@ -144,7 +149,7 @@ public class home_screen_fragment extends Fragment {
         final Retrofit retrofit = new Retrofit.Builder().baseUrl(ROOT_URL).addConverterFactory(GsonConverterFactory.create()).build();
         get_detailed_fromQuesAPI fromQues = retrofit.create(get_detailed_fromQuesAPI.class);
 
-        Call<List<get_detailed_fromQues>> call = fromQues.getQues();
+        Call<List<get_detailed_fromQues>> call = fromQues.getQues(info.getUser_id());
 
         call.enqueue(new Callback<List<get_detailed_fromQues>>() {
             @Override
@@ -163,9 +168,10 @@ public class home_screen_fragment extends Fragment {
                         user_tagline.add(list.get(i).getUser_tag());
                         topic_name.add(list.get(i).getTopic_name());
                         qid.add(list.get(i).getQues_id());
+                        uid.add(list.get(i).getUser_id());
                         i--;
                     }
-                    adapter = new RecyclerAdapter(qid,ques_list, user_name, user_tagline, user_image,topic_name,getChildFragmentManager(),recyclerView,communication,getContext(),info);
+                    adapter = new RecyclerAdapter(uid,qid,ques_list, user_name, user_tagline, user_image,topic_name,getChildFragmentManager(),recyclerView,communication,getContext(),info);
                     recyclerView.setAdapter(adapter);
 
                 }

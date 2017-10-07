@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +28,7 @@ public class Main3Activity extends AppCompatActivity {
 
     private String ques,q_user,q_tag,q_top;
     private String ans_text,ans_user,ans_tag;
-    private int aid,qid;
+    private int aid,qid,auid,quid;
 
     User_Info info;
     private TextView tv_ques,tv_q_user,tv_q_tag,tv_ans,tv_ans_tag,tv_ans_user,tv_top;
@@ -35,6 +36,8 @@ public class Main3Activity extends AppCompatActivity {
     ImageView upvote,give_ans;
 
     final private String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
+
+    LinearLayout linearLayout,linearLayout1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,8 @@ public class Main3Activity extends AppCompatActivity {
         info = (User_Info) bundle.getSerializable("Com_object");
         aid=bundle.getInt("ANSWER ID");
         qid=bundle.getInt("QUESTION ID");
+        quid=bundle.getInt("QUSER ID");
+        auid=bundle.getInt("AUSER ID");
             Log.d("hello","inside main3:"+info);
 
 
@@ -65,6 +70,8 @@ public class Main3Activity extends AppCompatActivity {
         tv_top = (TextView) findViewById(R.id.ques_title);
         upvote = (ImageView) findViewById(R.id.upvote);
         give_ans = (ImageView) findViewById(R.id.ans_btn);
+        linearLayout = (LinearLayout) findViewById(R.id.user);
+        linearLayout1 = (LinearLayout) findViewById(R.id.user1);
 
 
         tv_ques.setText(ques);
@@ -129,6 +136,30 @@ public class Main3Activity extends AppCompatActivity {
                 bundle1.putInt("QUESTION ID",qid);
                 intent1.putExtra("MAIN4",bundle1);
                 startActivity(intent1);
+            }
+        });
+
+
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("Other User","Inside Main3");
+                Intent intent = new Intent(Main3Activity.this,Other_user.class);
+                intent.putExtra("QUSER ID",quid);
+                intent.putExtra("CURR_UID",info.getUser_id());
+                startActivity(intent);
+            }
+        });
+
+
+        linearLayout1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("Other User","Inside Main3");
+                Intent intent = new Intent(Main3Activity.this,Other_user.class);
+                intent.putExtra("QUSER ID",auid);
+                intent.putExtra("CURR_UID",info.getUser_id());
+                startActivity(intent);
             }
         });
 

@@ -271,7 +271,7 @@ public class ForgotPassword_Fragment extends Fragment implements
 
 		String getEmailId = emailId.getText().toString();
 		final String from = "developers.querius@gmail.com";
-		final String password = "sdlproject";
+		final String password = "xxxxxxxx";
 //		String passwd;
 
 		@Override
