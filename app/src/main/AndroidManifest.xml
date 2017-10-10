@@ -22,8 +22,10 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <provider
@@ -61,7 +63,7 @@
         <activity android:name="com.onegravity.rteditor.media.crop.CropImageActivity" />
         <activity android:name=".Main4Activity" />
         /
-        <activity android:name=".Other_user"></activity>
+        <activity android:name=".Other_user" />
     </application>
 
 </manifest>

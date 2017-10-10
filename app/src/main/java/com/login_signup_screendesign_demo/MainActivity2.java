@@ -5,11 +5,16 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
+import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
@@ -28,20 +33,27 @@ public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuI
     User_Info userInfo;
     MenuItem menuItem;
 
-    ImageView iview;
+    BottomNavigationItemView home,notify,question,profile;
+
+    ImageView iview,search_view;
     Context context;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
+        @RequiresApi(api = Build.VERSION_CODES.M)
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+
+
+
+//                    DrawableCompat.setTint(home.getForeground(), ContextCompat.getColor(getApplicationContext(),R.color.white));
 //                    mTextMessage.setText(R.string.title_home);
                     FragmentManager fragmentManager1 = getSupportFragmentManager();
 //                    getIntent().putExtra("Com_object",userInfo);
-                    Home_Fragment fragment123 = new Home_Fragment();
+                    home_screen_fragment fragment123 = new home_screen_fragment();
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("Com_object",userInfo);
                     fragment123.setArguments(bundle);
@@ -49,11 +61,16 @@ public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuI
 
                     return true;
                 case R.id.navigation_notifications:
+
+
+//                    DrawableCompat.setTint(notify.getForeground(), ContextCompat.getColor(getApplicationContext(),R.color.white));
 //                    mTextMessage.setText(R.string.title_notifications);
                     return true;
                 case R.id.navigation_profile:
 //                    mTextMessage.setText(R.string.title_profile);
 
+
+//                    DrawableCompat.setTint(profile.getForeground(), ContextCompat.getColor(getApplicationContext(),R.color.white));
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     getIntent().putExtra("Com_object",userInfo);
                     android.support.v4.app.Fragment fragment = new android.support.v4.app.Fragment();
@@ -61,6 +78,10 @@ public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuI
                     return true;
 
                 case  R.id.ask_ques:
+
+
+
+//                    DrawableCompat.setTint(question.getForeground(), ContextCompat.getColor(getApplicationContext(),R.color.white));
                     FragmentManager fragmentManager2 = getSupportFragmentManager();
                     getIntent().putExtra("Com_object",userInfo);
                     fragmentManager2.beginTransaction().replace(R.id.content,new ques_ask()).commit();
@@ -76,7 +97,11 @@ public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-
+//
+//        home = (BottomNavigationItemView) findViewById(R.id.navigation_home);
+//        notify = (BottomNavigationItemView) findViewById(R.id.navigation_notifications);
+//        profile = (BottomNavigationItemView) findViewById(R.id.navigation_profile);
+//        question = (BottomNavigationItemView) findViewById(R.id.ask_ques);
 
         Intent intent = getIntent();
         userInfo = (User_Info) intent.getExtras().getSerializable("Object");
@@ -86,7 +111,7 @@ public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuI
 
 
         FragmentManager fragmentManager2 = getSupportFragmentManager();
-        Home_Fragment fragment123 = new Home_Fragment();
+        home_screen_fragment fragment123 = new home_screen_fragment();
         Bundle bundle = new Bundle();
         bundle.putSerializable("Com_object",userInfo);
         fragment123.setArguments(bundle);
@@ -95,6 +120,7 @@ public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuI
 //            Log.d("User_info", "" + userInfo.getName());
 //        }
         iview = (ImageView) findViewById(R.id.toggle);
+//        search_view = (ImageView) findViewById(R.id.search);
 
         iview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +151,15 @@ public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuI
             }
 
         });
+
+
+
+//        search_view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
 
 

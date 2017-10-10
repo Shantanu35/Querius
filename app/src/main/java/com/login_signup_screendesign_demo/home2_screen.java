@@ -16,6 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,16 +34,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class home2_screen extends Fragment {
 
 
-    private String ques_txt,q_name,q_tag,q_topic;
+    private String ques_txt,q_name,q_tag,q_topic,img_url;
 
     TextView question,tag,u_name,topic;
 
-    private List<String> ans_text,user_name,user_tag;
+    private List<String> ans_text,user_name,user_tag,ans_img_url;
     private List<Integer>aid,auid;
 
     private int qid,q_uid;
 
-    final private String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
+    final private String ROOT_URL = "http://192.168.1.4/sj/";
     final private String TAG = "Answer_Screen";
 
     User_Info info;
@@ -52,7 +54,7 @@ public class home2_screen extends Fragment {
     RelativeLayout relativeLayout;
     LinearLayout linearLayout;
 
-    ImageView give_ans;
+    ImageView give_ans,ques_profile;
 
     public home2_screen() {
         // Required empty public constructor
@@ -69,6 +71,7 @@ public class home2_screen extends Fragment {
         q_name = getArguments().getString("NAME");
         q_tag = getArguments().getString("TAGLINE");
         q_topic = getArguments().getString("TOPIC");
+        img_url = getArguments().getString("IMAGE");
         info = (User_Info) getArguments().getSerializable("Com_object");
         qid = getArguments().getInt("QUESTION ID");
         q_uid = getArguments().getInt("USER ID");
@@ -82,11 +85,13 @@ public class home2_screen extends Fragment {
         tag = (TextView) v.findViewById(R.id.tv_qual);
         topic = (TextView) v.findViewById(R.id.ques_title);
         give_ans= (ImageView) v.findViewById(R.id.ans_btn);
+        ques_profile= (ImageView) v.findViewById(R.id.logo_in_homescreen);
 
         question.setText(ques_txt);
         u_name.setText(q_name);
         tag.setText(q_tag);
         topic.setText(q_topic);
+        Picasso.with(getActivity().getApplicationContext()).load(ROOT_URL+img_url).into(ques_profile);
 
 
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
@@ -98,6 +103,7 @@ public class home2_screen extends Fragment {
         ans_text= new ArrayList<>();
         user_name= new ArrayList<>();
         user_tag= new ArrayList<>();
+        ans_img_url= new ArrayList<>();
         aid=new ArrayList<>();
         auid=new ArrayList<>();
 
@@ -111,6 +117,7 @@ public class home2_screen extends Fragment {
                 bundle1.putString("TOPIC NAME",q_topic);
                 bundle1.putString("Q_NAME",q_name);
                 bundle1.putString("Q_TAGLINE",q_tag);
+                bundle1.putString("IMAGE",img_url);
                 bundle1.putSerializable("Com_object",info);
                 bundle1.putInt("QUESTION ID",qid);
                 bundle1.putInt("QUSER ID",q_uid);
@@ -128,6 +135,7 @@ public class home2_screen extends Fragment {
                 Intent intent = new Intent(getContext(),Other_user.class);
                 intent.putExtra("QUSER ID",q_uid);
                 intent.putExtra("CURR_UID",info.getUser_id());
+                intent.putExtra("IMAGE",img_url);
                 startActivity(intent);
             }
         });
@@ -157,10 +165,11 @@ public class home2_screen extends Fragment {
                         user_tag.add(list.get(i).getU_tag());
                         aid.add(list.get(i).getAns_id());
                         auid.add(list.get(i).getU_id());
+                        ans_img_url.add(list.get(i).getImg_path());
                         i--;
                     }
 
-                    adapter = new RecyclerViewAdapter(q_uid,qid,aid,auid,ques_txt,q_name,q_tag,q_topic,ans_text, user_name, user_tag,home2_screen.this.getActivity(),info);
+                    adapter = new RecyclerViewAdapter(img_url,ans_img_url,q_uid,qid,aid,auid,ques_txt,q_name,q_tag,q_topic,ans_text, user_name, user_tag,home2_screen.this.getActivity(),info);
                     recyclerView.setAdapter(adapter);
 
 

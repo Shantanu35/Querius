@@ -47,7 +47,7 @@ public class home_screen_fragment extends Fragment {
 
 
 
-    private List<String> ques_list,user_name,user_tagline,topic_name;
+    private List<String> ques_list,user_name,user_tagline,topic_name,img_url;
 
     private List<get_detailed_fromQues> list;
 
@@ -59,7 +59,7 @@ public class home_screen_fragment extends Fragment {
 
     private getUser_Info uinfo;
 
-    final private String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
+    final private String ROOT_URL = "http://192.168.1.4/sj/";
     final private String TAG = "AdapterinHome";
 
     RecyclerView recyclerView;
@@ -81,13 +81,14 @@ public class home_screen_fragment extends Fragment {
 
     FragmentCommunication communication = new FragmentCommunication() {
         @Override
-        public void respond(int uid,int qid,String name, String tag, String qtxt,String t_name) {
+        public void respond(int uid,int qid,String name, String tag, String qtxt,String t_name,String i_url) {
             home2_screen fragmentB=new home2_screen();
             Bundle bundle=new Bundle();
             bundle.putString("NAME",name);
             bundle.putString("TAGLINE",tag);
             bundle.putString("QUESTION",qtxt);
             bundle.putString("TOPIC",t_name);
+            bundle.putString("IMAGE",i_url);
             bundle.putInt("QUESTION ID",qid);
             bundle.putInt("USER ID",uid);
             bundle.putSerializable("Com_object",info);
@@ -127,6 +128,7 @@ public class home_screen_fragment extends Fragment {
         user_image= new ArrayList<>();
         user_tagline= new ArrayList<>();
         topic_name = new ArrayList<>();
+        img_url = new ArrayList<>();
         qid=new ArrayList<>();
         uid=new ArrayList<>();
 
@@ -169,9 +171,10 @@ public class home_screen_fragment extends Fragment {
                         topic_name.add(list.get(i).getTopic_name());
                         qid.add(list.get(i).getQues_id());
                         uid.add(list.get(i).getUser_id());
+                        img_url.add(list.get(i).getImg_path());
                         i--;
                     }
-                    adapter = new RecyclerAdapter(uid,qid,ques_list, user_name, user_tagline, user_image,topic_name,getChildFragmentManager(),recyclerView,communication,getContext(),info);
+                    adapter = new RecyclerAdapter(uid,qid,ques_list, user_name, user_tagline,topic_name,img_url,getChildFragmentManager(),recyclerView,communication,getContext(),info);
                     recyclerView.setAdapter(adapter);
 
                 }

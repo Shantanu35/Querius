@@ -35,7 +35,7 @@ public class QuestionProfile extends Fragment {
 
     String u_name,u_tag;
 
-    final private String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
+    final private String ROOT_URL = "http://192.168.1.4/sj/";
     final private String TAG = "AdapterinHome";
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -45,6 +45,7 @@ public class QuestionProfile extends Fragment {
     int userid;
 
     User_Info info;
+    String url;
 
     public QuestionProfile() {
         // Required empty public constructor
@@ -69,6 +70,7 @@ public class QuestionProfile extends Fragment {
         topic_name = new ArrayList<>();
        user_name = new ArrayList<>();
         user_tagline = new ArrayList<>();
+        user_image = new ArrayList<>();
 
 //        u_name = getArguments().getString("NAME");
 //        u_tag = getArguments().getString("TAGLINE");
@@ -76,6 +78,7 @@ public class QuestionProfile extends Fragment {
 
         info = (User_Info) getArguments().getSerializable("Com_object");
         Log.d("hello","Info inside Question Profile :"+info);
+        url = getArguments().getString("IMAGE");
 
 
 
@@ -92,13 +95,14 @@ public class QuestionProfile extends Fragment {
 
     FragmentCommunication communication = new FragmentCommunication() {
         @Override
-        public void respond(int quid,int qid,String name, String tag, String qtxt,String t_name) {
+        public void respond(int quid,int qid,String name, String tag, String qtxt,String t_name,String img_url) {
             home2_screen fragmentB=new home2_screen();
             Bundle bundle=new Bundle();
             bundle.putString("NAME",name);
             bundle.putString("TAGLINE",tag);
             bundle.putString("QUESTION",qtxt);
             bundle.putString("TOPIC",t_name);
+            bundle.putString("IMAGE",img_url);
             bundle.putSerializable("Com_object",info);
             bundle.putInt("QUESTION ID",qid);
             bundle.putInt("QUSER ID",quid);
@@ -138,9 +142,10 @@ public class QuestionProfile extends Fragment {
                         user_tagline.add(info.getTagLine());
                         qid.add(list.get(i).getQid());
                         quid.add(info.getUser_id());
+                        user_image.add(url);
                         i--;
                     }
-                    adapter = new RecyclerAdapter(quid,qid,ques_list, user_name, user_tagline, user_image,topic_name,getChildFragmentManager(),recyclerView,communication,getContext(),info);
+                    adapter = new RecyclerAdapter(quid,qid,ques_list, user_name, user_tagline,topic_name,user_image,getChildFragmentManager(),recyclerView,communication,getContext(),info);
                     recyclerView.setAdapter(adapter);
 
                 }

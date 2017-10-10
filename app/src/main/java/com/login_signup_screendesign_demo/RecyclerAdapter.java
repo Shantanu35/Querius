@@ -17,6 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import org.w3c.dom.Text;
 
 import java.util.List;
@@ -33,7 +35,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>{
 
-    private List<String> ques_list,user_name,user_tagline,topic_name;
+    private List<String> ques_list,user_name,user_tagline,topic_name,img_url;
 
 //    private List<Integer> user_id;
 //
@@ -51,7 +53,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     Context context;
 
-
+    final String ROOT_URL = "http://192.168.1.4/sj/";
 
     User_Info info;
 
@@ -60,12 +62,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 //    final private String TAG = "Adapter";
 
 
-    public RecyclerAdapter(List<Integer> user_id,List<Integer> ques_id,List<String> ques_list, List<String> user_name, List<String> user_tagline, List<String> user_image, List<String> topic_name, FragmentManager manager,RecyclerView recyclerView,FragmentCommunication communication,Context context,User_Info info) {
+    public RecyclerAdapter(List<Integer> user_id,List<Integer> ques_id,List<String> ques_list, List<String> user_name, List<String> user_tagline, List<String> topic_name, List<String> img_url,FragmentManager manager,RecyclerView recyclerView,FragmentCommunication communication,Context context,User_Info info) {
         this.ques_list = ques_list;
         this.user_name = user_name;
         this.user_tagline = user_tagline;
-        this.user_image = user_image;
+//        this.user_image = user_image;
         this.topic_name = topic_name;
+        this.img_url=img_url;
         this.manager = manager;
         this.ques_id=ques_id;
         this.user_id=user_id;
@@ -100,6 +103,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.tv_name.setText(user_name.get(position));
         holder.tv_qual.setText(user_tagline.get(position));
         holder.tv_top.setText(topic_name.get(position));
+        Picasso.with(context.getApplicationContext()).load(ROOT_URL+img_url.get(position)).into(holder.imageView);
 
         holder.iview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,11 +118,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 bundle.putString("TAGLINE",user_tagline.get(position));
                 bundle.putString("QUESTION",ques_list.get(position));
                 bundle.putString("TOPIC",topic_name.get(position));
+                bundle.putString("IMAGE",img_url.get(position));
                 bundle.putInt("QUESTION ID",ques_id.get(position));
                 bundle.putInt("USER ID",user_id.get(position));
                 fragment.setArguments(bundle);
 
-                holder.mCommunication.respond(user_id.get(position),ques_id.get(position),user_name.get(position),user_tagline.get(position),ques_list.get(position),topic_name.get(position));
+                holder.mCommunication.respond(user_id.get(position),ques_id.get(position),user_name.get(position),user_tagline.get(position),ques_list.get(position),topic_name.get(position),img_url.get(position));
 
 
             }
@@ -131,6 +136,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 Bundle bundle1 = new Bundle();
                 bundle1.putString("QUESTION TEXT",ques_list.get(position));
                 bundle1.putString("TOPIC NAME",topic_name.get(position));
+                bundle1.putString("IMAGE",img_url.get(position));
                 bundle1.putString("Q_NAME",user_name.get(position));
                 bundle1.putString("Q_TAGLINE",user_tagline.get(position));
                 bundle1.putSerializable("Com_object",info);
@@ -150,6 +156,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 Intent intent = new Intent(context,Other_user.class);
                 intent.putExtra("QUSER ID",user_id.get(position));
                 intent.putExtra("CURR_UID",info.getUser_id());
+                intent.putExtra("IMAGE",img_url.get(position));
                 context.startActivity(intent);
             }
         });
@@ -184,9 +191,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             relativeLayout = (RelativeLayout) itemView.findViewById(R.id.rel_main);
             mCommunication = communication;
             linearLayout = (LinearLayout) itemView.findViewById(R.id.user);
-
-
-
         }
     }
 

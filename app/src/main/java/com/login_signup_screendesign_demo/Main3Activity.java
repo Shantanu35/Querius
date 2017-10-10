@@ -16,6 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,16 +28,17 @@ import static android.graphics.Color.*;
 
 public class Main3Activity extends AppCompatActivity {
 
-    private String ques,q_user,q_tag,q_top;
-    private String ans_text,ans_user,ans_tag;
+    private String ques,q_user,q_tag,q_top,q_url;
+    private String ans_text,ans_user,ans_tag,a_url;
     private int aid,qid,auid,quid;
 
     User_Info info;
     private TextView tv_ques,tv_q_user,tv_q_tag,tv_ans,tv_ans_tag,tv_ans_user,tv_top;
 
     ImageView upvote,give_ans;
+    RoundedImageView ques_profile,ans_profile;
 
-    final private String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
+    final private String ROOT_URL = "http://192.168.1.4/sj/";
 
     LinearLayout linearLayout,linearLayout1;
 
@@ -49,6 +52,8 @@ public class Main3Activity extends AppCompatActivity {
         ques = bundle.getString("QUESTION");
         q_user = bundle.getString("Q_NAME");
         q_tag = bundle.getString("Q_TAG");
+        q_url = bundle.getString("Q_IMAGE");
+        a_url = bundle.getString("IMAGE");
         q_top = bundle.getString("Q_Topic");
         ans_text = bundle.getString("ANSWER");
         ans_user = bundle.getString("A_USER");
@@ -72,6 +77,8 @@ public class Main3Activity extends AppCompatActivity {
         give_ans = (ImageView) findViewById(R.id.ans_btn);
         linearLayout = (LinearLayout) findViewById(R.id.user);
         linearLayout1 = (LinearLayout) findViewById(R.id.user1);
+        ques_profile = (RoundedImageView) findViewById(R.id.logo1);
+        ans_profile = (RoundedImageView) findViewById(R.id.logo2);
 
 
         tv_ques.setText(ques);
@@ -81,6 +88,9 @@ public class Main3Activity extends AppCompatActivity {
         tv_ans.setText(ans_text);
         tv_ans_user.setText(ans_user);
         tv_ans_tag.setText(ans_tag);
+
+        Picasso.with(getApplicationContext()).load(ROOT_URL+q_url).into(ques_profile);
+        Picasso.with(getApplicationContext()).load(ROOT_URL+a_url).into(ans_profile);
 
         upvote.setOnClickListener(new View.OnClickListener() {
             @Override

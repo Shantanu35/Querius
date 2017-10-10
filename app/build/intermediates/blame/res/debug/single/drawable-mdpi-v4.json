@@ -52,16 +52,16 @@
         "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_fontcolor_dark.png"
     },
     {
-        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_toolbar_undo_dark_pressed.png",
-        "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_undo_dark_pressed.png"
+        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/notification_bg_normal.9.png",
+        "source": "/home/shantanu/.android/build-cache/b09bec42117fa05b17e1e1a6f76f59297c27667f/output/res/drawable-mdpi-v4/notification_bg_normal.9.png"
     },
     {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_toolbar_superscript_dark_pressed.png",
         "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_superscript_dark_pressed.png"
     },
     {
-        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/notification_bg_normal.9.png",
-        "source": "/home/shantanu/.android/build-cache/b09bec42117fa05b17e1e1a6f76f59297c27667f/output/res/drawable-mdpi-v4/notification_bg_normal.9.png"
+        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_toolbar_undo_dark_pressed.png",
+        "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_undo_dark_pressed.png"
     },
     {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_015.png",
@@ -100,24 +100,24 @@
         "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_inc_indent_light_pressed.png"
     },
     {
-        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_toolbar_align_right_light_checked.png",
-        "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_align_right_light_checked.png"
-    },
-    {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_toolbar_align_right_light_pressed.png",
         "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_align_right_light_pressed.png"
+    },
+    {
+        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_toolbar_align_right_light_checked.png",
+        "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_align_right_light_checked.png"
     },
     {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_toolbar_fontsize_dark_checked.png",
         "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_fontsize_dark_checked.png"
     },
     {
-        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_toolbar_italic_light.png",
-        "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_italic_light.png"
-    },
-    {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_light_disabled.9.png",
         "source": "/home/shantanu/.android/build-cache/f8210856ffedbc64d7d21c7a79179db0ae8c729f/output/res/drawable-mdpi-v4/common_google_signin_btn_icon_light_disabled.9.png"
+    },
+    {
+        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_toolbar_italic_light.png",
+        "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_italic_light.png"
     },
     {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_light_pressed.9.png",
@@ -192,12 +192,12 @@
         "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_italic_dark_pressed.png"
     },
     {
-        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_toolbar_subscript_light_checked.png",
-        "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_subscript_light_checked.png"
-    },
-    {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_tab_indicator_mtrl_alpha.9.png",
         "source": "/home/shantanu/.android/build-cache/b09bec42117fa05b17e1e1a6f76f59297c27667f/output/res/drawable-mdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_toolbar_subscript_light_checked.png",
+        "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_subscript_light_checked.png"
     },
     {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/notification_bg_low_normal.9.png",
@@ -240,12 +240,12 @@
         "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable-mdpi-v4/ic_toolbar_superscript_light_checked.png"
     },
     {
-        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_star_half_black_36dp.png",
-        "source": "/home/shantanu/.android/build-cache/b09bec42117fa05b17e1e1a6f76f59297c27667f/output/res/drawable-mdpi-v4/abc_ic_star_half_black_36dp.png"
-    },
-    {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_activated_mtrl_alpha.9.png",
         "source": "/home/shantanu/.android/build-cache/b09bec42117fa05b17e1e1a6f76f59297c27667f/output/res/drawable-mdpi-v4/abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_star_half_black_36dp.png",
+        "source": "/home/shantanu/.android/build-cache/b09bec42117fa05b17e1e1a6f76f59297c27667f/output/res/drawable-mdpi-v4/abc_ic_star_half_black_36dp.png"
     },
     {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_toolbar_link_light.png",

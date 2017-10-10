@@ -1,5 +1,7 @@
 package com.login_signup_screendesign_demo;
 
+import android.graphics.Bitmap;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -9,7 +11,17 @@ import java.io.Serializable;
  * Created by shantanu on 19/9/17.
  */
 
-public class User_Info implements Serializable {
+public class    User_Info implements Serializable {
+
+
+    @SerializedName("Image_ID")
+    private int img_id;
+
+    @SerializedName("Image_title")
+    private String img_title;
+
+    @SerializedName("Image_path")
+    private Bitmap img_url;
 
     @SerializedName("userid")
     @Expose
@@ -46,6 +58,30 @@ public class User_Info implements Serializable {
     @SerializedName("password")
     @Expose
     private  String password;
+
+    public int getImg_id() {
+        return img_id;
+    }
+
+    public void setImg_id(int img_id) {
+        this.img_id = img_id;
+    }
+
+    public void setImg_title(String img_title) {
+        this.img_title = img_title;
+    }
+
+    public void setImg_url(Bitmap img_url) {
+        this.img_url = img_url;
+    }
+
+    public String getImg_title() {
+        return img_title;
+    }
+
+    public Bitmap getImg_url() {
+        return img_url;
+    }
 
     public int getQues_asked() {
         return ques_asked;

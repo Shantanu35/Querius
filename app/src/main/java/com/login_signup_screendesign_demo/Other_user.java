@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Other_user extends AppCompatActivity {
 
     private int uid,curr_uid;
-    final private String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
+    final private String ROOT_URL = "http://192.168.1.4/sj/";
     private TextView tv_name,tv_tag,tv_ques_asked,tv_ans_given,tv_foll;
     private FloatingActionButton to_f,no_f;
     static int flag=1;

@@ -176,15 +176,15 @@
                     />
 
 
-                <ImageView
-                    android:id="@+id/book_mark"
-                    android:layout_width="24sp"
-                    android:layout_height="24sp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="160dp"
-                    android:layout_marginTop="3dp"
-                    app:srcCompat="@drawable/ic_bookmark_border_black_24dp"
-                    />
+                <!--<ImageView-->
+                    <!--android:id="@+id/book_mark"-->
+                    <!--android:layout_width="24sp"-->
+                    <!--android:layout_height="24sp"-->
+                    <!--android:layout_marginRight="10dp"-->
+                    <!--android:layout_marginLeft="160dp"-->
+                    <!--android:layout_marginTop="3dp"-->
+                    <!--app:srcCompat="@drawable/ic_bookmark_border_black_24dp"-->
+                    <!--/>-->
 
 
             </LinearLayout>

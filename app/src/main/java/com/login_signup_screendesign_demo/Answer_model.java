@@ -26,6 +26,13 @@ public class Answer_model {
     private String u_tag;
 
 
+    @SerializedName("Image_path")
+    private String img_path;
+
+    public String getImg_path() {
+        return img_path;
+    }
+
     public int getU_id() {
         return u_id;
     }

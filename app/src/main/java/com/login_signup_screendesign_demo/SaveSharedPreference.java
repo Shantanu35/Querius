@@ -2,8 +2,15 @@ package com.login_signup_screendesign_demo;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.preference.PreferenceManager;
+import android.util.Base64;
 import android.util.Log;
+
+import java.io.ByteArrayOutputStream;
+
+import static android.R.attr.bitmap;
 
 /**
  * Created by shantanu on 6/10/17.
@@ -55,10 +62,14 @@ public class SaveSharedPreference {
         editor.apply();
     }
 
-    public static void setPrefImageUrl(Context ctx, String iurl)
+    public static void setPrefImageUrl(Context ctx, Bitmap iurl)
     {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
-        editor.putString(PREF_IMAGE_URL, iurl);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        iurl.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+        byte imgByte[] = byteArrayOutputStream.toByteArray();
+        String url = Base64.encodeToString(imgByte,Base64.DEFAULT);
+        editor.putString(PREF_IMAGE_URL,url);
         editor.apply();
     }
 
@@ -138,8 +149,12 @@ public class SaveSharedPreference {
         return getSharedPreferences(ctx).getString(PREF_TAG_LINE, "");
     }
 
-    public static String getPrefImageUrl(Context ctx) {
-        return getSharedPreferences(ctx).getString(PREF_IMAGE_URL, "");
+    public static Bitmap getPrefImageUrl(Context ctx) {
+
+        String url = getSharedPreferences(ctx).getString(PREF_IMAGE_URL, "");
+        byte [] encodeByte=Base64.decode(url,Base64.DEFAULT);
+        Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+        return bitmap;
     }
 
     public static String getPrefPasswd(Context ctx) {

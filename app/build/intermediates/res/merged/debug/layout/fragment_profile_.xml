@@ -16,15 +16,17 @@
         android:orientation="vertical"
         android:layout_gravity="center">
 
-        <com.login_signup_screendesign_demo.RoundedImageView
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/logo"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:src="@drawable/index"
+            app:civ_border_width="2dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/index"
-            />
+            app:civ_border_color="#FF000000"/>
 
         <TextView
             android:id="@+id/name"

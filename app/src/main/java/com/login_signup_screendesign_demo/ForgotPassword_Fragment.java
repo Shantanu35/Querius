@@ -52,7 +52,7 @@ public class ForgotPassword_Fragment extends Fragment implements
 	private static EditText emailId;
 	private static TextView submit, back;
 	private static LinearLayout forgot_password;
-	final String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
+	final String ROOT_URL = "http://192.168.1.4/sj/";
 	String pwd;
 	public ForgotPassword_Fragment() {
 
@@ -98,7 +98,6 @@ public class ForgotPassword_Fragment extends Fragment implements
 	public void forgotUser(){
 		final String getEmailId = emailId.getText().toString();
 //		final String from = "shantanujainrko@gmail.com";
-//		final String password = "l6s3s7s26";
 
 		Retrofit retrofit = new Retrofit.Builder().baseUrl(ROOT_URL).addConverterFactory(GsonConverterFactory.create()).build();
 		APIClient apiClient = retrofit.create(APIClient.class);
@@ -271,7 +270,7 @@ public class ForgotPassword_Fragment extends Fragment implements
 
 		String getEmailId = emailId.getText().toString();
 		final String from = "developers.querius@gmail.com";
-		final String password = "xxxxxxxx";
+		final String password = "sdlpr0ject";
 //		String passwd;
 
 		@Override

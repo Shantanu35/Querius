@@ -424,6 +424,10 @@
         "source": "/home/shantanu/.android/build-cache/8e2b977211f8761b4c7ce9024b2e06c054d6ffb6/output/res/drawable/selector_ic_toolbar_strikethrough_dark.xml"
     },
     {
+        "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable/ic_search_black_24dp.xml",
+        "source": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/src/main/res/drawable/ic_search_black_24dp.xml"
+    },
+    {
         "merged": "/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
         "source": "/home/shantanu/.android/build-cache/b09bec42117fa05b17e1e1a6f76f59297c27667f/output/res/drawable/abc_seekbar_thumb_material.xml"
     },

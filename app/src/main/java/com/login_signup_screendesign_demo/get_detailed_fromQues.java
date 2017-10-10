@@ -8,6 +8,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class get_detailed_fromQues {
 
+    @SerializedName("Image_path")
+    private String img_path;
+
     @SerializedName("questionid")
     private int ques_id;
 
@@ -28,6 +31,9 @@ public class get_detailed_fromQues {
     @SerializedName("name")
     private String topic_name;
 
+    public String getImg_path() {
+        return img_path;
+    }
 
     public int getUser_id() {
         return user_id;

@@ -29,7 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 	private static FragmentManager fragmentManager;
-	final String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
+	final String ROOT_URL = "http://192.168.1.4/sj/";
 	User_Info info;
 
 	@Override
@@ -64,11 +64,10 @@ public class MainActivity extends AppCompatActivity {
 			info.setName(SaveSharedPreference.getPrefUserName(getApplicationContext()));
 			Log.d("sab","inside M1 "+info.getName());
 			info.setEmail_id(SaveSharedPreference.getUserName(getApplicationContext()));
-			info.setImageURL(SaveSharedPreference.getPrefImageUrl(getApplicationContext()));
+//			info.setImageURL(SaveSharedPreference.getPrefImageUrl(getApplicationContext()));
 			info.setAddress(SaveSharedPreference.getPrefAddr(getApplicationContext()));
 			info.setPassword(SaveSharedPreference.getPrefPasswd(getApplicationContext()));
 			info.setTagLine(SaveSharedPreference.getPrefTagLine(getApplicationContext()));
-
 
 			Intent intent = new Intent(MainActivity.this,MainActivity2.class);
 			intent.putExtra("Object",info);

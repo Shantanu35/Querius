@@ -55,7 +55,7 @@ public class ques_ask extends Fragment {
     public static Animation shakeAnimation;
     public static RelativeLayout ques_ask_layout;
 
-    final String ROOT_URL = "https://wwwqueriuscom.000webhostapp.com/";
+    final String ROOT_URL = "http://192.168.1.4/sj/";
     final String TAG = "QUES";
     String getTitle,getQues;
 
@@ -103,6 +103,7 @@ public class ques_ask extends Fragment {
                         ques_ask_layout.startAnimation(shakeAnimation);
                     new CustomToast().Show_Toast(ques_ask.this.getActivity(), view,
                             "Enter both credentials.");
+                    button.setText("ASK");
                 }
 
                 else{
@@ -174,6 +175,7 @@ public class ques_ask extends Fragment {
                 else{
                     Toast.makeText(getContext(),"Some Error Occurred",Toast.LENGTH_SHORT).show();
                     Log.d(TAG,"No response");
+                    button.setText("ASK");
                 }
             }
 
@@ -181,6 +183,7 @@ public class ques_ask extends Fragment {
             public void onFailure(Call<List<myPojo>> call, Throwable t) {
                 Toast.makeText(getContext(),"Check Your network",Toast.LENGTH_SHORT).show();
                 Log.d(TAG,""+t.getMessage());
+                button.setText("ASK");
             }
         });
 
@@ -268,6 +271,7 @@ public class ques_ask extends Fragment {
                 }
                 else{
                     Toast.makeText(getContext(),"Please Select A valid topic",Toast.LENGTH_SHORT).show();
+                    button.setText("ASK");
                 }
             }
 
@@ -276,6 +280,7 @@ public class ques_ask extends Fragment {
                 Toast.makeText(getContext(),"Check Your network",Toast.LENGTH_SHORT).show();
                 Log.d(TAG,"getting id "+t.getMessage());
                 t.printStackTrace();
+                button.setText("ASK");
             }
         });
 
@@ -305,6 +310,7 @@ public class ques_ask extends Fragment {
                         public void run() {
                             new CustomToast().Show_Toast(getActivity(), v,
                                     "Question Asked");
+                            button.setText("ASK");
                         }
                     });
 
@@ -318,6 +324,7 @@ public class ques_ask extends Fragment {
                         public void run() {
                             new CustomToast().Show_Toast(getActivity(), v,
                                     "Question has a a problem");
+                            button.setText("ASK");
                         }
                     });
                 }
@@ -328,6 +335,7 @@ public class ques_ask extends Fragment {
             public void onFailure(Call<Integer> call, Throwable t) {
                 Toast.makeText(getContext(),"Check Your network",Toast.LENGTH_SHORT).show();
                 Log.d(TAG,"inserting"+t.getMessage());
+                button.setText("ASK");
             }
         });
     }
