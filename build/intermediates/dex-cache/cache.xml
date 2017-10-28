@@ -218,15 +218,6 @@
         <dex dex="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/pre-dexed/debug/okio-1.13.0_e7ce6ef58202081b6a66a80d692bd666bfda088a.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/shantanu/.android/build-cache/9d97df7a436f531f8b4013bf2f534bb5cf942998/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
-        <dex dex="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_72ad2aa585629f8a943b4448610ab4e8c90021ca/classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="/home/shantanu/.android/build-cache/7e46853588d66677295a1f3ea72096deb76333e4/output/jars/classes.jar"
         jumboMode="false"
@@ -234,6 +225,15 @@
         revision="26.0.1"
         sha1="b305cfd7ae732d7c146fe3046aea90f877c3892b">
         <dex dex="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/pre-dexed/debug/classes_a9a1f799103ff6bb2bbb9746baf5b66b3eab4a2b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shantanu/.android/build-cache/9d97df7a436f531f8b4013bf2f534bb5cf942998/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
+        <dex dex="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/pre-dexed/debug/classes_72ad2aa585629f8a943b4448610ab4e8c90021ca.jar" />
     </item>
     <item
         is-multidex="false"
@@ -286,7 +286,7 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="790204a5a4fcc78f7ba850c7148a0eae02d534d5">
+        sha1="337bbbe32ce64876a008e71f4042208a79ba428a">
         <dex dex="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_df3d1bce91d88b95400999ad565006d8514d85eb/classes.dex" />
     </item>
     <item

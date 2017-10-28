@@ -2,11 +2,13 @@ package com.login_signup_screendesign_demo;
 
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -27,6 +30,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.text.Html.fromHtml;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,12 +43,15 @@ public class home2_screen extends Fragment {
 
     TextView question,tag,u_name,topic;
 
-    private List<String> ans_text,user_name,user_tag,ans_img_url;
+    private List<Spanned> ans_text;
+    private List<String> user_name;
+    private List<String> user_tag;
+    private List<String> ans_img_url;
     private List<Integer>aid,auid;
 
     private int qid,q_uid;
 
-    final private String ROOT_URL = "http://192.168.1.4/sj/";
+    final private String ROOT_URL = "http://192.168.1.3/sj/";
     final private String TAG = "Answer_Screen";
 
     User_Info info;
@@ -111,17 +119,18 @@ public class home2_screen extends Fragment {
         give_ans.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(getContext(),Main4Activity.class);
+                Intent intent1 = new Intent(getContext(),Answer.class);
                 Bundle bundle1 = new Bundle();
                 bundle1.putString("QUESTION TEXT",ques_txt);
                 bundle1.putString("TOPIC NAME",q_topic);
                 bundle1.putString("Q_NAME",q_name);
                 bundle1.putString("Q_TAGLINE",q_tag);
                 bundle1.putString("IMAGE",img_url);
-                bundle1.putSerializable("Com_object",info);
+//                bundle1.putSerializable("Com_object",info);
                 bundle1.putInt("QUESTION ID",qid);
+                bundle1.putInt("USER ID",info.getUser_id());
                 bundle1.putInt("QUSER ID",q_uid);
-                intent1.putExtra("MAIN4",bundle1);
+                intent1.putExtras(bundle1);
                 startActivity(intent1);
 
             }
@@ -160,7 +169,21 @@ public class home2_screen extends Fragment {
                     List<Answer_model> list = response.body();
                     int i = list.size()-1;
                     while(i>=0){
-                        ans_text.add(list.get(i).getAns_text());
+                        Spanned s = null;
+                        if (Build.VERSION.SDK_INT >= 24) {
+                            s = fromHtml(list.get(i).getAns_text(), Html.FROM_HTML_MODE_LEGACY);
+                        }
+                        else
+                        {
+                            s = fromHtml(list.get(i).getAns_text().toString());
+                            Toast.makeText(getContext(),list.get(i).getAns_text().toString(), Toast.LENGTH_SHORT).show();
+
+                        }
+
+
+
+                        ans_text.add(s);
+//                        ans_text.add(list.get(i).getAns_text());
                         user_name.add(list.get(i).getU_name());
                         user_tag.add(list.get(i).getU_tag());
                         aid.add(list.get(i).getAns_id());

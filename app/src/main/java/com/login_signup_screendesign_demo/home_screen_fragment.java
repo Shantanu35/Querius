@@ -4,11 +4,13 @@ package com.login_signup_screendesign_demo;
 import android.database.Observable;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.data.DataBufferObserver;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -59,7 +62,7 @@ public class home_screen_fragment extends Fragment {
 
     private getUser_Info uinfo;
 
-    final private String ROOT_URL = "http://192.168.1.4/sj/";
+    final private String ROOT_URL = "http://192.168.1.3/sj/";
     final private String TAG = "AdapterinHome";
 
     RecyclerView recyclerView;
@@ -70,6 +73,7 @@ public class home_screen_fragment extends Fragment {
 
     CoordinatorLayout coordinatorLayout;
 
+    SwipeRefreshLayout swipeRefreshLayout;
     User_Info info;
 
     public home_screen_fragment() {
@@ -95,7 +99,7 @@ public class home_screen_fragment extends Fragment {
             fragmentB.setArguments(bundle);
             FragmentManager manager=getFragmentManager();
             FragmentTransaction transaction=manager.beginTransaction();
-            transaction.replace(R.id.hs_rel,fragmentB).commit();
+            transaction.replace(R.id.hs_rel,fragmentB).addToBackStack(null).commit();
         }
     };
 
@@ -112,6 +116,7 @@ public class home_screen_fragment extends Fragment {
 
         relativeLayout = (RelativeLayout) v.findViewById(R.id.hs_rel);
         coordinatorLayout = (CoordinatorLayout) v.findViewById(R.id.co_layout);
+        swipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.swipe);
 
         info = (User_Info) getArguments().getSerializable("Com_object");
         Log.d("hello","Info is :"+info);
@@ -119,6 +124,29 @@ public class home_screen_fragment extends Fragment {
             Log.d(TAG,"Inside info:"+info.getEmail_id());
         }
 
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(true);
+//                Toast.makeText(home_screen_fragment.this.getActivity(),"Tejas",Toast.LENGTH_SHORT).show();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                      swipeRefreshLayout.setRefreshing(false);
+                        Toast.makeText(home_screen_fragment.this.getActivity(),"REFRESHED!",Toast.LENGTH_SHORT).show();
+                        FragmentManager fragmentManager1 = getFragmentManager();
+//                    getIntent().putExtra("Com_object",userInfo);
+                        home_screen_fragment fragment123 = new home_screen_fragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("Com_object",info);
+                        fragment123.setArguments(bundle);
+                        fragmentManager1.beginTransaction().replace(R.id.content,fragment123).addToBackStack(null).commit();
+
+                    }
+                },1000);
+            }
+        });
 
 
 
@@ -195,6 +223,7 @@ public class home_screen_fragment extends Fragment {
 
 
     }
+
 
 //
 //    private void get_user_information(final int i){

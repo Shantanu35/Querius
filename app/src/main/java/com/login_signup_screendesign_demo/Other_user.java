@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Other_user extends AppCompatActivity {
 
     private int uid,curr_uid;
-    final private String ROOT_URL = "http://192.168.1.4/sj/";
+    final private String ROOT_URL = "http://192.168.1.3/sj/";
     private TextView tv_name,tv_tag,tv_ques_asked,tv_ans_given,tv_foll;
     private FloatingActionButton to_f,no_f;
     static int flag=1;
@@ -99,7 +99,7 @@ public class Other_user extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<User_Info>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),"Check Your Network Connection",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),"Check Your Network Connection",Toast.LENGTH_SHORT).show();
                 t.printStackTrace();
             }
         });

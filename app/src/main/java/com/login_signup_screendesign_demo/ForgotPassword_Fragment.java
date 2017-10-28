@@ -52,7 +52,7 @@ public class ForgotPassword_Fragment extends Fragment implements
 	private static EditText emailId;
 	private static TextView submit, back;
 	private static LinearLayout forgot_password;
-	final String ROOT_URL = "http://192.168.1.4/sj/";
+	final String ROOT_URL = "http://192.168.1.3/sj/";
 	String pwd;
 	public ForgotPassword_Fragment() {
 

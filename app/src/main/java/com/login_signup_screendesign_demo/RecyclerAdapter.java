@@ -53,7 +53,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     Context context;
 
-    final String ROOT_URL = "http://192.168.1.4/sj/";
+    final String ROOT_URL = "http://192.168.1.3/sj/";
 
     User_Info info;
 
@@ -132,17 +132,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.give_ans.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(context,Main4Activity.class);
+                Intent intent1 = new Intent(context,Answer.class);
                 Bundle bundle1 = new Bundle();
                 bundle1.putString("QUESTION TEXT",ques_list.get(position));
                 bundle1.putString("TOPIC NAME",topic_name.get(position));
                 bundle1.putString("IMAGE",img_url.get(position));
                 bundle1.putString("Q_NAME",user_name.get(position));
                 bundle1.putString("Q_TAGLINE",user_tagline.get(position));
-                bundle1.putSerializable("Com_object",info);
+//                bundle1.putSerializable("Com_object",info);
                 bundle1.putInt("QUESTION ID",ques_id.get(position));
-                bundle1.putInt("USER ID",user_id.get(position));
-                intent1.putExtra("MAIN4",bundle1);
+                bundle1.putInt("USER ID",info.getUser_id());
+                Log.d("hello","inisde recycler :"+ques_id.get(position));
+//                bundle1.putInt("USER ID",user_id.get(position));
+//                bundle1.putSerializable("Com_object",info);
+                intent1.putExtras(bundle1);
                 context.startActivity(intent1);
 
             }

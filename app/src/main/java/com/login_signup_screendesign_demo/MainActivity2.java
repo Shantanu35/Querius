@@ -57,15 +57,14 @@ public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuI
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("Com_object",userInfo);
                     fragment123.setArguments(bundle);
-                    fragmentManager1.beginTransaction().replace(R.id.content,fragment123).commit();
+                    fragmentManager1.beginTransaction().replace(R.id.content,fragment123).addToBackStack(null).commit();
 
                     return true;
-                case R.id.navigation_notifications:
+
 
 
 //                    DrawableCompat.setTint(notify.getForeground(), ContextCompat.getColor(getApplicationContext(),R.color.white));
-//                    mTextMessage.setText(R.string.title_notifications);
-                    return true;
+//                    mTextMessage.setText(R.string.title_notifications
                 case R.id.navigation_profile:
 //                    mTextMessage.setText(R.string.title_profile);
 
@@ -175,8 +174,9 @@ public class MainActivity2 extends AppCompatActivity implements MenuItem.OnMenuI
 
     @Override
     public void onBackPressed() {
-
-
+//
+//        FragmentManager fm = getSupportFragmentManager();
+//        fm.popBackStack();
 
         Intent menuIntent = new Intent();
         menuIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_CLEAR_TOP);

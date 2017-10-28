@@ -15,12 +15,12 @@ public final class R {
         public static final int maxCollapsedLines = 0x7f010130;
     }
     public static final class drawable {
-        public static final int ic_collapse_holo_light = 0x7f02007c;
-        public static final int ic_collapse_large_holo_light = 0x7f02007d;
-        public static final int ic_collapse_small_holo_light = 0x7f02007e;
-        public static final int ic_expand_holo_light = 0x7f020081;
-        public static final int ic_expand_large_holo_light = 0x7f020082;
-        public static final int ic_expand_small_holo_light = 0x7f020084;
+        public static final int ic_collapse_holo_light = 0x7f02007d;
+        public static final int ic_collapse_large_holo_light = 0x7f02007e;
+        public static final int ic_collapse_small_holo_light = 0x7f02007f;
+        public static final int ic_expand_holo_light = 0x7f020082;
+        public static final int ic_expand_large_holo_light = 0x7f020083;
+        public static final int ic_expand_small_holo_light = 0x7f020085;
     }
     public static final class id {
         public static final int expand_collapse = 0x7f0f0004;

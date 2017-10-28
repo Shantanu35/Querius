@@ -35,7 +35,7 @@ public class QuestionProfile extends Fragment {
 
     String u_name,u_tag;
 
-    final private String ROOT_URL = "http://192.168.1.4/sj/";
+    final private String ROOT_URL = "http://192.168.1.3/sj/";
     final private String TAG = "AdapterinHome";
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;

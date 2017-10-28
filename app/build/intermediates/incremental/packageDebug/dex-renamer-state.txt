@@ -1,4 +1,4 @@
-#Tue Oct 10 20:03:41 IST 2017
+#Sat Oct 28 18:01:19 IST 2017
 base.0=/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_df3d1bce91d88b95400999ad565006d8514d85eb
 renamed.1=classes2.dex
 renamed.0=classes.dex

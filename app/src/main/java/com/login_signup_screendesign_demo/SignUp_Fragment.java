@@ -1,5 +1,6 @@
 package com.login_signup_screendesign_demo;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.XmlResourceParser;
 import android.os.AsyncTask;
@@ -40,7 +41,7 @@ public class SignUp_Fragment extends Fragment implements OnClickListener {
 	private static TextView login;
 	private static Button signUpButton;
 	private static CheckBox terms_conditions;
-	final String ROOT_URL = "http://192.168.1.4/sj/";
+	final String ROOT_URL = "http://192.168.1.3/sj/";
 
 	public SignUp_Fragment() {
 

@@ -9,6 +9,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 25
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
 
     packagingOptions {

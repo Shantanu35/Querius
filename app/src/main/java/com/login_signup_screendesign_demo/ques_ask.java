@@ -55,7 +55,7 @@ public class ques_ask extends Fragment {
     public static Animation shakeAnimation;
     public static RelativeLayout ques_ask_layout;
 
-    final String ROOT_URL = "http://192.168.1.4/sj/";
+    final String ROOT_URL = "http://192.168.1.3/sj/";
     final String TAG = "QUES";
     String getTitle,getQues;
 

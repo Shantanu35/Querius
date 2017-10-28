@@ -78,13 +78,13 @@ public class Profile_Fragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static TextView tagline,Name,no1,no2,no3;
+    private static TextView tagline,Name,no1,no2,no3,des1,des2,des3;
 
     LinearLayout ques_tab,ans_tab;
 
     final String TAG = "Image";
 
-    final String ROOT_URL = "http://192.168.1.4/sj/";
+    final String ROOT_URL = "http://192.168.1.3/sj/";
 
     User_Info info;
 
@@ -98,6 +98,7 @@ public class Profile_Fragment extends Fragment {
 
     Bitmap bitmap;
 
+    ImageView b1,b2,b3;
     private static Bitmap bmap;
 
     // TODO: Rename and change types of parameters
@@ -159,6 +160,14 @@ public class Profile_Fragment extends Fragment {
         no1 = (TextView) v.findViewById(R.id.no1);
         no2 = (TextView) v.findViewById(R.id.no2);
         no3 = (TextView) v.findViewById(R.id.no3);
+        des1 = (TextView) v.findViewById(R.id.desc1);
+        des2 = (TextView) v.findViewById(R.id.desc2);
+        des3 = (TextView) v.findViewById(R.id.desc3);
+
+        des1.setText("Infosys,GM");
+        des2.setText("PICT,BE");
+        des3.setText("Pune");
+
         ques_tab = (LinearLayout) v.findViewById(R.id.ques_tab);
         ans_tab = (LinearLayout) v.findViewById(R.id.all_answers);
 
@@ -167,6 +176,11 @@ public class Profile_Fragment extends Fragment {
         no1.setText(""+info.getQues_asked());
         no2.setText(""+info.getAns_given());
         no3.setText(""+info.getFollower());
+        b1=(ImageView)v.findViewById(R.id.btn1);
+        b2=(ImageView)v.findViewById(R.id.btn2);
+        b3=(ImageView)v.findViewById(R.id.btn3);
+
+
 
 
         ques_tab.setOnClickListener(new View.OnClickListener() {
@@ -188,12 +202,55 @@ public class Profile_Fragment extends Fragment {
         });
 
 
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Toast.makeText(getContext(),"button 1",Toast.LENGTH_SHORT).show();
+                //  bundle.putSerializable("Com_object",info);
+                Intent intent1=new Intent(Profile_Fragment.this.getActivity(),employment_cred.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("key",info.getUser_id());
+                intent1.putExtras(bundle); //Put your id to your next Intent
+                startActivity(intent1);
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Toast.makeText(getContext(),"button 2",Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                //   bundle.putSerializable("Com_object",info);
+                Intent intent1=new Intent(Profile_Fragment.this.getActivity(),education_cred.class);
+                bundle.putInt("key",info.getUser_id());
+                intent1.putExtras(bundle); //Put your id to your next Intent
+                // intent1.putExtra("info",bundle);
+                startActivity(intent1);
+            }
+        });
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Toast.makeText(getContext(),"button 3",Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                //  bundle.putSerializable("Com_object",info);
+                Intent intent1=new Intent(Profile_Fragment.this.getActivity(),location_cred.class);
+                bundle.putInt("key",info.getUser_id());
+                intent1.putExtras(bundle); //Put your id to your next Intent
+                //  intent1.putExtra("info",bundle);
+                startActivity(intent1);
+            }
+        });
+
+
+
         ans_tab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
+
+
 
 
 //        iview.setOnClickListener(new View.OnClickListener() {
@@ -284,6 +341,7 @@ public class Profile_Fragment extends Fragment {
 //        }
 
         fetchImage();
+        getCred();
         return v;
         }
 
@@ -310,7 +368,7 @@ public class Profile_Fragment extends Fragment {
                     ImageModel model = list.get(0);
                      url = model.getPath();
                     Log.d("url","the url is :"+url);
-                    String full_url = "http://192.168.1.4/sj/"+url;
+                    String full_url = ROOT_URL+url;
 //                    byte[] decode_string = Base64.decode(full_url,Base64.DEFAULT);
 //                    Bitmap decoded_image = BitmapFactory.decodeByteArray(decode_string, 0, decode_string.length);
                     Picasso.with(getActivity().getApplicationContext()).load(full_url).into(imageView);
@@ -392,6 +450,76 @@ public class Profile_Fragment extends Fragment {
             }
         });
     }
+
+
+    private void getCred() {
+
+        final Retrofit retrofit = new Retrofit.Builder().baseUrl(ROOT_URL).addConverterFactory(GsonConverterFactory.create()).build();
+        allcred allcred1 = retrofit.create(allcred.class);
+
+
+        final int user_id = info.getUser_id();
+        Log.d("hello","inisdde getCred"+user_id);
+        //
+        Call<Integer> call = allcred1.ispresent(user_id);
+
+        call.enqueue(new Callback<Integer>() {
+            @Override
+            public void onResponse(Call<Integer> call, Response<Integer> response) {
+
+                if (response.body() == 1) {
+                    int uid = user_id;
+
+                    allcredAPI2 allcred2 = retrofit.create(allcredAPI2.class);
+                    // Toast.makeText(getApplicationContext(), "already present", Toast.LENGTH_SHORT).show();
+                    Call<List<getAllCred>> call1 = allcred2.get_allcred(uid);
+                    call1.enqueue(new Callback<List<getAllCred>>() {
+                        @Override
+                        public void onResponse(Call<List<getAllCred>> call, Response<List<getAllCred>> response) {
+                            if (response.isSuccessful()) {
+                                // Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_SHORT).show();
+                                List<getAllCred> list = response.body();
+                                getAllCred all = list.get(0);
+
+                                des1.setText(all.getCompany() + "," + all.getPosition());
+                                des2.setText(all.getSchool() + "," + all.getBranch());
+                                des3.setText(all.getLocation());
+
+
+                            } else {
+                                Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
+
+                            }
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<getAllCred>> call, Throwable t) {
+                            Toast.makeText(getContext(), "Check Your networkinisde", Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "getting id " + t.getMessage());
+                            t.printStackTrace();
+                        }
+                    });
+
+                } else {
+                    Toast.makeText(getContext(), "add cred", Toast.LENGTH_SHORT).show();
+
+
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<Integer> call, Throwable t) {
+//                Toast.makeText(getContext(), "Check Your network", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "getting id " + t.getMessage());
+                t.printStackTrace();
+            }
+        });
+
+    }
+
 
 
     //    // TODO: Rename method, update argument and hook method into UI event

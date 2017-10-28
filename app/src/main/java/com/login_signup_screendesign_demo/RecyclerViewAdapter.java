@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,16 +23,17 @@ import java.util.List;
  */
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private List<String> ans_list,user_name,user_tagline,img_url;
+    private List<String> user_name,user_tagline,img_url;
     private List<Integer>ans_id,ans_uid;
+    private List<Spanned> ans_list;
     private Integer qid,q_uid;
     private Context context;
     User_Info info;
-    final String ROOT_URL = "http://192.168.1.4/sj/";
+    final String ROOT_URL = "http://192.168.1.3/sj/";
 
     private String ques,q_user,q_tag,q_top,q_url;
 
-    public RecyclerViewAdapter(String q_url,List<String> img_url,Integer q_uid,Integer qid,List<Integer> ans_id,List<Integer> ans_uid,String ques,String q_user,String q_tag,String q_top,List<String> ans_list, List<String> user_name, List<String> user_tagline, Context context,User_Info info) {
+    public RecyclerViewAdapter(String q_url, List<String> img_url, Integer q_uid, Integer qid, List<Integer> ans_id, List<Integer> ans_uid, String ques, String q_user, String q_tag, String q_top, List<Spanned> ans_list, List<String> user_name, List<String> user_tagline, Context context, User_Info info) {
         this.ques=ques;
         this.q_user=q_user;
         this.q_tag=q_tag;
@@ -77,7 +79,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 bundle.putString("Q_TAG",q_tag);
                 bundle.putString("Q_IMAGE",q_url);
                 bundle.putString("Q_Topic",q_top);
-                bundle.putString("ANSWER",ans_list.get(position));
+                bundle.putString("ANSWER",String.valueOf(ans_list.get(position)));
                 bundle.putString("A_USER",user_name.get(position));
                 bundle.putString("A_TAG",user_tagline.get(position));
                 bundle.putString("IMAGE",img_url.get(position));

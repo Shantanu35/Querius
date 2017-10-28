@@ -29,7 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 	private static FragmentManager fragmentManager;
-	final String ROOT_URL = "http://192.168.1.4/sj/";
+	final String ROOT_URL = "http://192.168.1.3/sj/";
 	User_Info info;
 
 	@Override
