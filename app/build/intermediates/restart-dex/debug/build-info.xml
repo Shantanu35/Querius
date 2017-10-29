@@ -6,26 +6,29 @@
     density="xxhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1509195277608"
+    timestamp="1509196004654"
     token="3547827996149842154"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="205" />
+        duration="170" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="15" />
+        duration="22" />
     <task
         name="verifier"
-        duration="0" />
+        duration="1" />
 
     <artifact
         location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
         type="SPLIT" />
+    <artifact
+        location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/outputs/apk/app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
@@ -87,17 +90,17 @@
         <artifact
             location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
-        <artifact
-            location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/outputs/apk/app-debug.apk"
-            type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
-        timestamp="1509195277608"
+        timestamp="1509196004654"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
             type="SPLIT" />
+        <artifact
+            location="/home/shantanu/AndroidStudioProjects/Login_SignUp_ScreenDesgin_Demo/Login_SignUp_ScreenDesgin_Demo/app/build/outputs/apk/app-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>
